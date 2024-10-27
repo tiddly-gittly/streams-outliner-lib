@@ -1,6 +1,6 @@
-title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
+title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
 
-\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
+\procedure lingo-base() $:/plugins/sq/streams-outliner-lib/language/
 
 ! <<lingo Name>>
 
@@ -8,6 +8,10 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 !! 使用方法
 
-```tid
-{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
-```
+创建一个大纲，将信息添加到条目 [[Index]] 的字段里：
+
+<<wikitext-example-without-html """<<stream-outliner Index>>
+""">>
+
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index>>
+""">>

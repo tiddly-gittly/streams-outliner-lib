@@ -1,6 +1,6 @@
-title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
+title: $:/plugins/sq/streams-outliner-lib/language/en-GB/Readme
 
-\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
+\procedure lingo-base() $:/plugins/sq/streams-outliner-lib/language/
 
 ! <<lingo Name>>
 
@@ -8,6 +8,10 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
 
 !! Usage
 
-```tid
-{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
-```
+Create an outliner that will add information to tiddler [[Index]]'s fields:
+
+<<wikitext-example-without-html """<<stream-outliner Index>>
+""">>
+
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index>>
+""">>
