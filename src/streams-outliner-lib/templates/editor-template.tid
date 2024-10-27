@@ -1,8 +1,4 @@
-created: 20200601145424630
-modified: 20200602053704598
-tags: 
 title: $:/plugins/sq/streams-outliner-lib/editor-template
-type: text/vnd.tiddlywiki
 
 \define config-visibility-title()
 $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$

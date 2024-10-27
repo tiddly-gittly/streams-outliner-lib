@@ -1,12 +1,8 @@
-created: 20200529205858594
-list-before: $:/core/ui/ViewTemplate/body
-modified: 20200530055142652
-tags: $:/tags/ViewTemplate
 title: $:/plugins/sq/streams-outliner-lib/breadcrumbs-view-template
-type: text/vnd.tiddlywiki
+tags: $:/tags/Global
 
 \whitespace trim
-\define stream-show-breadcrumbs()
+\procedure stream-show-breadcrumbs()
 <$list filter="[<currentTiddler>has[stream-type]]">
 	<$list filter="[<currentTiddler>has[parent]]">
 		<$set name="currentTiddler" filter="[{!!parent}]" select="0">
@@ -24,9 +20,3 @@ type: text/vnd.tiddlywiki
 	</$list>
 </$list>
 \end
-<$list filter="""[<folded-state>get[text]!is[blank]else[show]!match[hide]]""" variable="_NULL">
-<$list filter="[{$:/config/sq/streams/enable-breadcrumbs}match[yes]]" variable="_NULL">
-<<stream-show-breadcrumbs>>
-</$list>
-</$list>
-

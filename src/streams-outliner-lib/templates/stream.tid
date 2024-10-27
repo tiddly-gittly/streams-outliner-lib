@@ -1,0 +1,12 @@
+title: $:/plugins/sq/streams-outliner-lib/stream-view-template
+tags: $:/tags/Global
+
+\procedure stream-outliner()
+{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+\end
+
+\procedure stream-outliner-breadcrumbs()
+<<stream-show-breadcrumbs>>
+
+{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+\end
