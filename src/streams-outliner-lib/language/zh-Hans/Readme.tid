@@ -1,0 +1,13 @@
+title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
+
+\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
+
+! <<lingo Name>>
+
+<<lingo Description>>
+
+!! 使用方法
+
+```tid
+{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+```

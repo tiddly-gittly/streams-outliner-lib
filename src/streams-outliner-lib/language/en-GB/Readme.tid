@@ -1,0 +1,13 @@
+title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
+
+\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
+
+! <<lingo Name>>
+
+<<lingo Description>>
+
+!! Usage
+
+```tid
+{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+```
