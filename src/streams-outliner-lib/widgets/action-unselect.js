@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams/action-unselect.js
+title: $:/plugins/sq/streams-outliner-lib/action-unselect.js
 type: application/javascript
 module-type: widget
 

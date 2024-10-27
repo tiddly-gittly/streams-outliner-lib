@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams/codemirror-tweak
+title: $:/plugins/sq/streams-outliner-lib/codemirror-tweak
 type: application/javascript
 module-type: startup
 

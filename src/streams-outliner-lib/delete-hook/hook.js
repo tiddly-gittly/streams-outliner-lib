@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams/delete-hook/hook
+title: $:/plugins/sq/streams-outliner-lib/delete-hook/hook
 type: application/javascript
 module-type: startup
 

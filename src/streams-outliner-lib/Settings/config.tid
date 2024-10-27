@@ -1,4 +1,4 @@
-title: $:/plugins/sq/streams/Settings/config
+title: $:/plugins/sq/streams-outliner-lib/Settings/config
 caption: Configuration
 
 \define sortBySettingsGroupFilter()

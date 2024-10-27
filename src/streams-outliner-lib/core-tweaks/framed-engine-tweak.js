@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams/framed-engine-tweak
+title: $:/plugins/sq/streams-outliner-lib/framed-engine-tweak
 type: application/javascript
 module-type: startup
 

@@ -1,7 +1,7 @@
 created: 20200602163018613
 modified: 20200603055942658
 tags: 
-title: $:/plugins/sq/streams/contextmenu/contextmenu-template
+title: $:/plugins/sq/streams-outliner-lib/contextmenu/contextmenu-template
 type: text/vnd.tiddlywiki
 
 \define menu-item(title,subtitle:"",actions:"")
@@ -27,6 +27,6 @@ type: text/vnd.tiddlywiki
 				actions={{{[<listItem>get[text]]}}} />
 		</$list>
 		<<menu-divider>>
-		<$macrocall $name="menu-item" title="Keyboard Shortcuts (?)" actions="""<$action-navigate $to="$:/plugins/sq/streams/info/keyboard-shortcuts"/>"""/>
+		<$macrocall $name="menu-item" title="Keyboard Shortcuts (?)" actions="""<$action-navigate $to="$:/plugins/sq/streams-outliner-lib/info/keyboard-shortcuts"/>"""/>
 	</div>
 </$reveal>

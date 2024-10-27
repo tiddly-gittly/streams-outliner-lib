@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams/filters/get-stream-nodes.js
+title: $:/plugins/sq/streams-outliner-lib/filters/get-stream-nodes.js
 type: application/javascript
 module-type: filteroperator
 

@@ -1,6 +1,6 @@
 created: 20170922203553093
 modified: 20170927050808722
-title: $:/plugins/sq/streams/styles
+title: $:/plugins/sq/streams-outliner-lib/styles
 tags: [[$:/tags/Stylesheet]]
 
 .stream-root {

@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams/draggable-tweaks.js
+title: $:/plugins/sq/streams-outliner-lib/draggable-tweaks.js
 type: application/javascript
 module-type: widget-subclass
 \*/

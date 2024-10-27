@@ -10,13 +10,13 @@ type: text/vnd.tiddlywiki
 
 It is possible to add to, and even override, Streams' default macros
 
-See: `$:/plugins/sq/streams/action-macros` for the defaults
+See: `$:/plugins/sq/streams-outliner-lib/action-macros` for the defaults
 
-This is done by adding the tag: `$:/tags/streams/user-actionmacros` to a tiddler containing your macro(s) with the same names as the macros you want to override from `$:/plugins/sq/streams/action-macros`.
+This is done by adding the tag: `$:/tags/streams/user-actionmacros` to a tiddler containing your macro(s) with the same names as the macros you want to override from `$:/plugins/sq/streams-outliner-lib/action-macros`.
 
 For example if a user wanted to make new pages from links by default:
 
-They would copy from `$:/plugins/sq/streams/action-macros` the code to save a node when we stop editing with <kbd>ctrl-enter</kbd>
+They would copy from `$:/plugins/sq/streams-outliner-lib/action-macros` the code to save a node when we stop editing with <kbd>ctrl-enter</kbd>
 
 ```
 \define save-edit-node-actions()
@@ -63,7 +63,7 @@ Now the text is:
 
 ```
 \define save-edit-node-actions()
-\import [[$:/plugins/sq/streams/action-macros]]
+\import [[$:/plugins/sq/streams-outliner-lib/action-macros]]
 <<save-edit-node-actions>>
 <!-- to create a new page from any square bracketed link automatically when saving node -->
 <$list filter="[all[current]links[]is[missing]]">

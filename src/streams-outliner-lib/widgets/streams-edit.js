@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams/streams-edit
+title: $:/plugins/sq/streams-outliner-lib/streams-edit
 type: application/javascript
 module-type: widget-subclass
 

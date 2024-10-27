@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams/widgets/swiper.js
+title: $:/plugins/sq/streams-outliner-lib/widgets/swiper.js
 type: application/javascript
 module-type: widget
 

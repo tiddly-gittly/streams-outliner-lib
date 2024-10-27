@@ -1,7 +1,7 @@
 title: $:/config/sq/streams/editor-engine
 description: Editor to use for Streams
 caption: Editor to use for Streams
-settings-template: $:/plugins/sq/streams/ui/templates/settings/select
+settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
 option-names: [[Default]] [[CodeMirror]]
 option-values: text codemirror
 condition: [[widget]modules[]prefix[$:/plugins/tiddlywiki/codemirror/edit-codemirror.js]]

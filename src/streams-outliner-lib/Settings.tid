@@ -1,5 +1,5 @@
-title: $:/plugins/sq/streams/Settings
+title: $:/plugins/sq/streams-outliner-lib/Settings
 tags: $:/tags/ControlPanel/SettingsTab
 caption: Outliner Lib
 
-<<tabs "$:/plugins/sq/streams/Settings/config $:/plugins/sq/streams/Settings/shortcuts" "$:/plugins/sq/streams/Settings/config" "$:/state/streams/settings/tabs">>
+<<tabs "$:/plugins/sq/streams-outliner-lib/Settings/config $:/plugins/sq/streams-outliner-lib/Settings/shortcuts" "$:/plugins/sq/streams-outliner-lib/Settings/config" "$:/state/streams/settings/tabs">>

@@ -12,7 +12,7 @@ You can add custom keyboard shortcuts by adding a tiddler with the tag `$:/tags/
 Examples of the format and fields required by such a tiddler: 
 
 * [[$:/streams/contextmenu/flatten]]
-* [[$:/plugins/sq/streams/keyboard-shortcuts/focus-higher-node]]
+* [[$:/plugins/sq/streams-outliner-lib/keyboard-shortcuts/focus-higher-node]]
 
 Required fields:
 

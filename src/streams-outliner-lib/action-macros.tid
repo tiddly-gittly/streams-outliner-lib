@@ -1,4 +1,4 @@
-title: $:/plugins/sq/streams/action-macros
+title: $:/plugins/sq/streams-outliner-lib/action-macros
 
 \whitespace trim
 
@@ -211,7 +211,7 @@ title: $:/plugins/sq/streams/action-macros
 
 \define delete-node-actions()
 <$action-confirm  $message="Do you wish to delete this tiddler?">
-	<$transclude tiddler="$:/plugins/sq/streams/delete-hook/actions"/>
+	<$transclude tiddler="$:/plugins/sq/streams-outliner-lib/delete-hook/actions"/>
 	<$action-deletetiddler $tiddler=<<currentTiddler>> />
 	<$list filter="[<row-edit-state>get[text]match<currentTiddler>]">
 		<<focus-higher-node-actions>>

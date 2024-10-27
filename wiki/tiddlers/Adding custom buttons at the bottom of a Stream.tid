@@ -14,7 +14,7 @@ For reference, this is the code for the default button to add a new node:
 ```
 <div class="stream-node-handle">
 	<$button tag="div" class="tc-btn-invisible" tooltip="add node" actions=<<add-new-node-actions>> >
-		{{$:/plugins/sq/streams/icons/new-node-btn}}
+		{{$:/plugins/sq/streams-outliner-lib/icons/new-node-btn}}
 	</$button>
 </div>
 ```

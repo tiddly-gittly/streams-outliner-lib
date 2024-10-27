@@ -18,7 +18,7 @@ A stream consists of multiple tiddlers, that we refer to as nodes. By default, a
 
 * [[Demos]]
 * [[Installation]]
-* [[Configuration|$:/plugins/sq/streams/Settings]]
+* [[Configuration|$:/plugins/sq/streams-outliner-lib/Settings]]
 * [[FAQs]]
 
 ---

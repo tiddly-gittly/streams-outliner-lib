@@ -1,6 +1,6 @@
 title: $:/config/sq/streams/dnd-modifier-transclude-node
 description: Modifier key for drag and drop to create a transclusion of a node.
-settings-template: $:/plugins/sq/streams/ui/templates/settings/select
+settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
 option-names: ctrl alt shift meta
 option-values: ctrl alt shift meta
 caption: Modifier key to transclude a node when dragging.
