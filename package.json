@@ -1,68 +1,54 @@
 {
-  "name": "streams",
-  "version": "1.2.24",
-  "description": "tw5 plugin",
-  "tiddlywiki-plugin": "plugins/streams",
-  "config": {
-    "plugin-path": "plugins/streams",
-    "plugin-namespace": "$:/plugins/sq/streams",
-    "release-files": [
-      "CHANGELOG.md",
-      "package.json",
-      "{{PLUGINPATH}}/releasenotes.txt",
-      "{{PLUGINPATH}}/plugin.info",
-      "tiddlers/CHANGELOG.txt"
-    ]
+  "url": "https://tiddly-gittly.github.io/Modern.TiddlyDev/",
+  "license": "MIT",
+  "version": "0.0.2",
+  "scripts": {
+    "dev": "tiddlywiki-plugin-dev dev",
+    "dev:wiki": "tiddlywiki-plugin-dev dev --write-wiki",
+    "test": "tiddlywiki-plugin-dev test",
+    "build": "npm run clean && tiddlywiki-plugin-dev build",
+    "publish": "npm run clean && tiddlywiki-plugin-dev publish",
+    "reset": "rimraf ./**/node_modules",
+    "clean": "rimraf dist",
+    "prepare": "husky install",
+    "update": "npm-check-updates -u && dprint config update",
+    "new": "tiddlywiki-plugin-dev new",
+    "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
+    "publish:offline": "npm run clean && tiddlywiki-plugin-dev publish --offline"
   },
-  "dependencies": {
-    "tiddlywiki": "^5.2.2",
-    "tiddlywiki-prerelease": "github:Jermolene/TiddlyWiki5"
+  "engines": {
+    "node": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
+    ],
+    "*.{js,jsx,mjs,mjsx,cjs,cjsx}": [
+      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
+    ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "marked": "^4.0.12",
-    "nodemon": "^2.0.7",
-    "standard-version": "^9.3.0"
+    "@modern-js/tsconfig": "^2.60.5",
+    "@types/jasmine": "^5.1.4",
+    "@types/node": "^22.8.1",
+    "dprint": "^0.47.4",
+    "eslint-config-tidgi": "^1.2.3",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tw5-typed": "^0.5.14",
+    "typescript": "^5.6.3"
   },
-  "scripts": {
-    "postinstall": "git config core.hooksPath ./.git-hooks",
-    "editor": "atom --new-window",
-    "browser": "chrome --new-window",
-    "build": "node ./node_modules/tiddlywiki/tiddlywiki.js . --build index",
-    "build-prerelease": "node ./node_modules/tiddlywiki-prerelease/tiddlywiki.js . --output ./output/prerelease/ --build index",
-    "build-beta": "node ./node_modules/tiddlywiki/tiddlywiki.js . --build beta",
-    "build-prerelease-beta": "node ./node_modules/tiddlywiki-prerelease/tiddlywiki.js . --output ./output/prerelease/ --build beta",
-    "update-tw": "npm install --save tiddlywiki-prerelease@github:Jermolene/TiddlyWiki5 && npm install --save tiddlywiki",
-    "dev": "npx nodemon -e tid,multids,js,info --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js . --listen port=7111",
-    "dev-prerelease": "npx nodemon -e tid,multids,js,info --watch plugins ./node_modules/tiddlywiki-prerelease/tiddlywiki.js . --listen port=7111",
-    "release": "git diff HEAD --quiet && ( standard-version --skip.commit --skip.tag && ./scripts/create-release-note.js && ./scripts/publish.js ) || (tput setaf 1; echo 'ERROR: Git repository is dirty')",
-    "release:clean": "rm CHANGELOG-temp-PREV.md && rm CHANGELOG-temp-NEW.md",
-    "push": "git push origin main"
-  },
-  "standard-version": {
-    "scripts": {
-      "prechangelog": "cp CHANGELOG.md CHANGELOG-temp-PREV.md",
-      "postchangelog": "npm run editor CHANGELOG.md"
-    },
-    "bumpFiles": [
-      {
-        "filename": "package.json"
-      },
-      {
-        "filename": "plugins/streams/plugin.info",
-        "type": "json"
-      }
-    ]
-  },
-  "author": "Saq Imtiaz",
-  "license": "BSD-3-Clause",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:saqimtiaz/streams.git"
-  },
-  "bugs": {
-    "url": "https://github.com/saqimtiaz/streams/issues"
-  },
-  "homepage": "https://saqimtiaz.github.io/streams/"
+  "dependencies": {
+    "npm-check-updates": "^17.1.6",
+    "tiddlywiki": "^5.3.5",
+    "tiddlywiki-plugin-dev": "^0.3.2"
+  }
 }
