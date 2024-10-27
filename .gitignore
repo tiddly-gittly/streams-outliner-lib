@@ -143,3 +143,6 @@ wiki/**/$__temp_*
 wiki/**/$__view.tid
 wiki/**/$__config_Navigation_openLinkFromInsideRiver.tid
 wiki/**/$__config_Navigation_openLinkFromOutsideRiver.tid
+wiki/tiddlers/layout.tid
+wiki/tiddlers/palette.tid
+wiki/tiddlers/StoryList.tid
