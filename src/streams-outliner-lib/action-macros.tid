@@ -132,7 +132,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 <$set name="parent" filter="[<currentTiddler>match<stream-root-title>] ~[{!!parent}] +[first[]]" select="0">
 <$wikify name="new-node" text=<<newNodeTitle>>>
 <$wikify name="new-node" text={{{[[<<unusedtitle """]addsuffix<new-node>addsuffix[""">>]]}}}>
-	<$action-createtiddler $basetitle=<<new-node>> text=<<__startText__>> $template=<<newNodeTiddlerTemplate>> parent=<<parent>> stream-type="default" stream-list=<<__streamList__>>/>
+	<$action-createtiddler $basetitle=<<new-node>> text=<<__startText__>> $template=<<newNodeTiddlerTemplate>> parent=<<parent>> _is_titleless="yes" stream-type="default" stream-list=<<__streamList__>>/>
 	<$set name="parent-nodes" filter="[<parent>get[stream-list]]" select="0">
 	<$set name="next-node" filter="[enlist<parent-nodes>is[tiddler]$insertPosition$<currentTiddler>]" select="0">
 	<$action-listops $tiddler=<<parent>> $field="stream-list" $subfilter="+[is[tiddler]] +[insertbefore:next-node<new-node>]"/>
@@ -320,7 +320,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 		<!-- shift modifier key on drop event -->
 		<$list filter="[<modifier>match{$:/config/sq/streams/dnd-modifier-transclude-node}]" variable="_NULL">
 			<!-- create new node on target, in correct position, text is a transclusion-->
-			<$action-createtiddler $basetitle=<<new-node>> text={{{ [<actionTiddler>addprefix[{{]addsuffix[}}]] }}} parent=<<parent>> stream-type="default"/>
+			<$action-createtiddler $basetitle=<<new-node>> text={{{ [<actionTiddler>addprefix[{{]addsuffix[}}]] }}} parent=<<parent>> _is_titleless="yes" stream-type="default"/>
 			<!-- insert into correct position on new parent -->
 			<$action-listops $tiddler=<<dropTargetTiddler>> $field="stream-list" $subfilter="+[insertbefore:currentTiddler<new-node>]"/>
 		</$list>
