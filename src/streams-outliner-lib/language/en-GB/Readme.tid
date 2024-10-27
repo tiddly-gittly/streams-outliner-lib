@@ -1,6 +1,6 @@
-title: $:/plugins/sq/streams-outliner-lib/language/en-GB/Readme
+title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
 
-\procedure lingo-base() $:/plugins/sq/streams-outliner-lib/language/
+\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
 
 ! <<lingo Name>>
 
@@ -37,9 +37,9 @@ The default is to concatenate the tiddler name with a slash to the random number
 
 Tiddler to use as a template for new nodes. You need to fill in an existed tiddler's title here.
 
-We use a tiddler [[$:/plugins/sq/streams-outliner-lib/language/en-GB/Name]] as example here.
+We use a tiddler [[$:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Name]] as example here.
 
 Note that it only takes effect on the second node (create a random node first, then press Enter to create the second node).
 
-<<wikitext-example-without-html """<<stream-outliner Index4 newNodeTiddlerTemplate:"$:/plugins/sq/streams-outliner-lib/language/en-GB/Name" id:stream-outliner-5>>""">>
+<<wikitext-example-without-html """<<stream-outliner Index4 newNodeTiddlerTemplate:"$:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Name" id:stream-outliner-5>>""">>
 

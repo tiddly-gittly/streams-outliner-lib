@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams-outliner-lib/droppable-tweaks.js
+title: $:/plugins/linonetwo/streams-outliner-lib/droppable-tweaks.js
 type: application/javascript
 module-type: widget-subclass
 \*/

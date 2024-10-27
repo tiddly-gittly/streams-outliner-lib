@@ -1,10 +1,10 @@
-title: $:/plugins/sq/streams-outliner-lib/templates/stream-root-template
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template
 
 \whitespace trim
 <$vars dropTargetTiddler=<<currentTiddler>> >
 	<$list filter="[list[!!stream-list]!is[missing]]">
 		<$set name="enable-dnd" filter="[<enable-dnd>match[no]] ~[<drag-title-state>get[text]match<currentTiddler>then[no]]" select="0">
-			{{||$:/plugins/sq/streams-outliner-lib/templates/stream-row-template}}
+			{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template}}
 		</$set>
 	</$list>
 	<$tiddler tiddler="">

@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams-outliner-lib/simple-engine-tweak
+title: $:/plugins/linonetwo/streams-outliner-lib/simple-engine-tweak
 type: application/javascript
 module-type: startup
 

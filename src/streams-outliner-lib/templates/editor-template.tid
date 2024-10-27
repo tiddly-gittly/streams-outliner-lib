@@ -1,4 +1,4 @@
-title: $:/plugins/sq/streams-outliner-lib/editor-template
+title: $:/plugins/linonetwo/streams-outliner-lib/editor-template
 
 \whitespace trim
 \define config-visibility-title()

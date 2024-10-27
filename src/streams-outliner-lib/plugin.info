@@ -1,5 +1,5 @@
 {
-	"title": "$:/plugins/sq/streams-outliner-lib",
+	"title": "$:/plugins/linonetwo/streams-outliner-lib",
 	"name": "Streams outliner library",
 	"description": "Lightweight Outliner component extracted from Streams plugin, for use in other plugins. ",
 	"plugin-type": "plugin",

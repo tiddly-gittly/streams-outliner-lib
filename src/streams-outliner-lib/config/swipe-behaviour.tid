@@ -1,7 +1,7 @@
 title: $:/config/sq/streams/swipe-behaviour
-description: <<lingo SwipeBehaviour/Description $:/plugins/sq/streams-outliner-lib/language/>> 
-caption: <<lingo SwipeBehaviour/Caption $:/plugins/sq/streams-outliner-lib/language/>>
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
+description: <<lingo SwipeBehaviour/Description $:/plugins/linonetwo/streams-outliner-lib/language/>> 
+caption: <<lingo SwipeBehaviour/Caption $:/plugins/linonetwo/streams-outliner-lib/language/>>
+settings-template: $:/plugins/linonetwo/streams-outliner-lib/ui/templates/settings/select
 option-names: [[Show ContextMenu]] [[Indent / Un-indent]]
 option-values: contextmenu indent
 

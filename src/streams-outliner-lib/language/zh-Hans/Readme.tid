@@ -1,6 +1,6 @@
-title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
+title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
-\procedure lingo-base() $:/plugins/sq/streams-outliner-lib/language/
+\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
 
 ! <<lingo Name>>
 
@@ -36,8 +36,8 @@ title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
 
 这个条目将用作新节点的模板。您需要在这里填写一个现有的条目的标题。
 
-这里我们使用条目 [[$:/plugins/sq/streams-outliner-lib/language/zh-Hans/Name]] 作为例子。
+这里我们使用条目 [[$:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Name]] 作为例子。
 
 注意它只有在第二个节点才开始生效（先随便创建一个节点，然后按回车来创建第二个节点看看）。
 
-<<wikitext-example-without-html """<<stream-outliner Index5 newNodeTiddlerTemplate:"$:/plugins/sq/streams-outliner-lib/language/zh-Hans/Name" id:stream-outliner-5>>""">>
+<<wikitext-example-without-html """<<stream-outliner Index5 newNodeTiddlerTemplate:"$:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Name" id:stream-outliner-5>>""">>

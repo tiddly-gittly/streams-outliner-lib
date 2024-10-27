@@ -1,6 +1,6 @@
-title: $:/plugins/sq/streams-outliner-lib/contextmenu/contextmenu-template
+title: $:/plugins/linonetwo/streams-outliner-lib/contextmenu/contextmenu-template
 
-\procedure lingo-base() $:/plugins/sq/streams-outliner-lib/language/
+\procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
 \define menu-item(title,subtitle:"",actions:"")
 		<$button class="tc-menu-list-item tc-btn-invisible" actions=<<__actions__>> >
 			<span class="sq-contextmenu-itemwrapper">
@@ -24,6 +24,6 @@ title: $:/plugins/sq/streams-outliner-lib/contextmenu/contextmenu-template
 				actions={{{[<listItem>get[text]]}}} />
 		</$list>
 		<<menu-divider>>
-		<$macrocall $name="menu-item" title="""<<lingo "KeyboardShortcuts">>""" actions="""<$action-navigate $to="$:/plugins/sq/streams-outliner-lib/info/keyboard-shortcuts"/>"""/>
+		<$macrocall $name="menu-item" title="""<<lingo "KeyboardShortcuts">>""" actions="""<$action-navigate $to="$:/plugins/linonetwo/streams-outliner-lib/info/keyboard-shortcuts"/>"""/>
 	</div>
 </$reveal>

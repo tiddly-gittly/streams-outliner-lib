@@ -1,4 +1,4 @@
-title: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
+title: $:/plugins/linonetwo/streams-outliner-lib/ui/templates/settings/select
 
 <label class="squi-form-label"><$link tooltip={{!!description}}>{{!!caption}}</$link></label>
 <$vars cnt={{{[enlist{!!option-names}count[]]}}}>

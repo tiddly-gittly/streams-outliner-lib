@@ -6,7 +6,7 @@ type: text/vnd.tiddlywiki
 
 You will need both the Streams plugin, and to allow renaming tiddlers the Relink plugin.
 
-* [[$:/plugins/sq/streams-outliner-lib]]
+* [[$:/plugins/linonetwo/streams-outliner-lib]]
 * [[$:/plugins/flibbles/relink]]
 
 Also recommended is the Relink-titles addon plugin for Relink, to preserve your naming scheme for nodes across a rename of the root or parent tiddler.

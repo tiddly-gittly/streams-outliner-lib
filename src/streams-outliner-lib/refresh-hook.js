@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams-outliner-lib/refresh-hook.js
+title: $:/plugins/linonetwo/streams-outliner-lib/refresh-hook.js
 type: application/javascript
 module-type: startup
 \*/

@@ -1,6 +1,6 @@
 /*\
 
-title: $:/plugins/sq/streams-outliner-lib/action-withinput.js
+title: $:/plugins/linonetwo/streams-outliner-lib/action-withinput.js
 type: application/javascript
 module-type: widget
 

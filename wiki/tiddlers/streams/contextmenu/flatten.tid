@@ -7,6 +7,6 @@ title: $:/streams/contextmenu/flatten
 type: text/vnd.tiddlywiki
 
 <!-- code from Jan (non-functional here) -->
-<$action-sendmessage $message="tm-modal" $param="$:/plugins/sq/streams-outliner-lib/implode-node-modal" startTiddler=<<currentTiddler>>/>
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/linonetwo/streams-outliner-lib/implode-node-modal" startTiddler=<<currentTiddler>>/>
 <<export-flat>>
 <$action-setfield $tiddler="$:/temp/NewStreamTitle" text=<<currentTiddler>>/>

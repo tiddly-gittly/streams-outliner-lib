@@ -1,7 +1,7 @@
 title: $:/config/sq/streams/dnd-modifier-copy-node
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
+settings-template: $:/plugins/linonetwo/streams-outliner-lib/ui/templates/settings/select
 option-names: ctrl alt shift meta
 option-values: ctrl alt shift meta
-caption: <<lingo DndModifierCopyNode $:/plugins/sq/streams-outliner-lib/language/>>
+caption: <<lingo DndModifierCopyNode $:/plugins/linonetwo/streams-outliner-lib/language/>>
 
 ctrl

@@ -1,7 +1,7 @@
 title: $:/config/sq/streams/swipe-contextmenu-position
 description: Position of context menu shown on swiping.
 caption: Position of context menu shown on swiping.
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
+settings-template: $:/plugins/linonetwo/streams-outliner-lib/ui/templates/settings/select
 settings-group: swipe
 option-names: [[Right]] [[Left]]
 option-values: right left

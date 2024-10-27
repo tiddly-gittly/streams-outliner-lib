@@ -1,7 +1,7 @@
 title: $:/config/sq/streams/swipe-enabled
-description: <<lingo SwipeEnabled/Description $:/plugins/sq/streams-outliner-lib/language/>> 
-caption: <<lingo SwipeEnabled/Caption $:/plugins/sq/streams-outliner-lib/language/>>
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input-switch
+description: <<lingo SwipeEnabled/Description $:/plugins/linonetwo/streams-outliner-lib/language/>> 
+caption: <<lingo SwipeEnabled/Caption $:/plugins/linonetwo/streams-outliner-lib/language/>>
+settings-template: $:/plugins/linonetwo/streams-outliner-lib/ui/templates/settings/input-switch
 settings-group: swipe
 settings-group-header: 0
 

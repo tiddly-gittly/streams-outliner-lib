@@ -1,3 +1,3 @@
-title: $:/plugins/sq/streams-outliner-lib/templates/stream-row-body
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-body
 
 <$transclude mode="block"/>

@@ -1,4 +1,4 @@
-title: $:/plugins/sq/streams-outliner-lib/templates/stream-row-template
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template
 
 \whitespace trim
 <$qualify
@@ -27,16 +27,16 @@ title: $:/plugins/sq/streams-outliner-lib/templates/stream-row-template
 			data-node-title=<<currentTiddler>>
 		>
 			<button type="button" class="tc-btn-invisible stream-node-ctrl-btn stream-node-collapser" data-btn-role="stream-node-visibility" data-rowchildren-visibility-state=<<row-children-visibility-state>>>
-				{{$:/plugins/sq/streams-outliner-lib/icons/node-expand-arrow}}
+				{{$:/plugins/linonetwo/streams-outliner-lib/icons/node-expand-arrow}}
 			</button>
 			<div class="stream-node-handle tc-btn-invisible stream-node-ctrl-btn" data-btn-role="stream-node-decorator" data-node-title=<<currentTiddler>>>
 					<div class="stream-node-handle-inner"/>
 			</div>
 		</$draggable>
 		<div class="stream-node-block">
-			<$list filter="[<row-edit-state>get[text]!is[blank]else[]match<currentTiddler>]" variable="NULL" emptyMessage="""{{||$:/plugins/sq/streams-outliner-lib/templates/stream-row-body}}""">
+			<$list filter="[<row-edit-state>get[text]!is[blank]else[]match<currentTiddler>]" variable="NULL" emptyMessage="""{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-body}}""">
 				<$keyboard-plus shortcutTag="$:/tags/streams/keyboard-shortcuts">
-					{{||$:/plugins/sq/streams-outliner-lib/editor-template}}
+					{{||$:/plugins/linonetwo/streams-outliner-lib/editor-template}}
 				</$keyboard-plus>			
 			</$list>
 		</div>
@@ -49,6 +49,6 @@ title: $:/plugins/sq/streams-outliner-lib/templates/stream-row-template
 	text="hide"
 	class="stream-row-children"
 >
-		{{||$:/plugins/sq/streams-outliner-lib/templates/stream-root-template}}
+		{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template}}
 </$reveal>
 </$qualify>

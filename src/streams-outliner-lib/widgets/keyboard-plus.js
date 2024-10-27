@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/sq/streams-outliner-lib/widgets/keyboard-plus.js
+title: $:/plugins/linonetwo/streams-outliner-lib/widgets/keyboard-plus.js
 type: application/javascript
 module-type: widget
 \*/
