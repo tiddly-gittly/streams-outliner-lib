@@ -1,7 +1,23 @@
 title: $:/plugins/sq/streams-outliner-lib/editor-template
 
+\whitespace trim
 \define config-visibility-title()
 $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 \end
-<$streams-edit tag="textarea" autoHeight="yes" minHeight="1em" focus="yes" select="false" class="streams-editor tc-edit-texteditor tc-edit-texteditor-body" caretPosition={{{[{$:/state/sq/streams/caret-position}!is[blank]else[end]]}}}><$set name="targetTiddler"value=<<currentTiddler>>><$list filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]"><$reveal type="nomatch" state=<<config-visibility-title>> text="hide" class="tc-text-editor-toolbar-item-wrapper"><$transclude tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
-mode="inline"/></$reveal></$list></$set></$streams-edit>
+<$edit
+  tag="textarea"
+  autoHeight="yes"
+  minHeight="1em"
+  focus="yes"
+  select="false"
+  class="streams-editor tc-edit-texteditor tc-edit-texteditor-body"
+  caretPosition={{{[{$:/state/sq/streams/caret-position}!is[blank]else[end]]}}}>
+  <$set name="targetTiddler"value=<<currentTiddler>>>
+    <$list filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]">
+      <$reveal type="nomatch" state=<<config-visibility-title>> text="hide" class="tc-text-editor-toolbar-item-wrapper">
+        <$transclude tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
+      mode="inline"/>
+      </$reveal>
+    </$list>
+  </$set>
+</$edit>
