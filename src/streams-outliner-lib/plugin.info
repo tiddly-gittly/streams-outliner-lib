@@ -6,9 +6,9 @@
 	"plugin-priority": "10",
   "stability": "STABILITY_1_EXPERIMENTAL",
 	"author": "Saq Imtiaz",
-	"version": "1.2.24",
+	"version": "1.0.0",
 	"core-version": ">=5.1.23",
-	"list": "Readme Settings tree CHANGELOG",
+	"list": "Readme Settings tree",
 	"source": "https://tiddly-gittly.github.io/streams-outliner-lib/",
 	"dependents": "$:/plugins/flibbles/relink"
 }

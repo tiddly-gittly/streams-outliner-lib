@@ -1,0 +1,12 @@
+title: CHANGELOG
+
+Based on Streams v1.2.24
+
+# Remove all hard-coded view templates
+# Refactor view templates to procedures, docs are in readme
+# Refactor some config to procedure parameters, also documented
+# Add i18n and some zh-Hans translation
+# Remove edit-streams widget and its code-mirror5 support
+# rename to $:/plugins/linonetwo/streams-outliner-lib showing that I will maintain it (at least for a while)
+
+Released as V1.0.0
