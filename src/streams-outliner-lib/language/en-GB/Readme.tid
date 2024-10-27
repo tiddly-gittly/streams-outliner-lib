@@ -15,10 +15,31 @@ Create an outliner that will add information to tiddler [[Index]]'s fields:
 
 !!! Navigation with breadcrumbs
 
-<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1 id:stream-outliner-1>>""">>
 
 !!! The node is edited with a toolbar
 
-<<wikitext-example-without-html """<<stream-outliner Index2 yes>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner Index2 enableEditToolbar:yes id:stream-outliner-2>>""">>
+
+!!! Maximum width of node
+
+<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:100 id:stream-outliner-3>>""">>
+
+!!! Template wikified for node title
+
+Wikitext that is wikified to generate the title for new nodes. 
+
+The default is to concatenate the tiddler name with a slash to the random number, but you can customize how the title is concatenated.
+
+<<wikitext-example-without-html """<<stream-outliner Index4 newNodeTitle:"<<stream-root-title>>-<<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>>" id:stream-outliner-4>>""">>
+
+!!! Tiddler to use as new node template
+
+Tiddler to use as a template for new nodes. You need to fill in an existed tiddler's title here.
+
+We use a tiddler [[$:/plugins/sq/streams-outliner-lib/language/en-GB/Name]] as example here.
+
+Note that it only takes effect on the second node (create a random node first, then press Enter to create the second node).
+
+<<wikitext-example-without-html """<<stream-outliner Index4 newNodeTiddlerTemplate:"$:/plugins/sq/streams-outliner-lib/language/en-GB/Name" id:stream-outliner-5>>""">>
+

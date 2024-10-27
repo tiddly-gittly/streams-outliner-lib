@@ -1,4 +1,0 @@
-title: $:/config/sq/streams/new-node-tiddler-template
-description: Tiddler to use as a template for new nodes
-caption: Tiddler to use as new node template
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input

@@ -27,10 +27,11 @@ tags: $:/tags/Global
   currentTiddler,
   id,
   enableEditToolbar:"no",
-  nodeMaxWidth:550
+  nodeMaxWidth:550,
+  newNodeTitle:"""<<stream-root-title>>/<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>""",
+  newNodeTiddlerTemplate,
 )
 \whitespace trim
-
 <$set name=outlinerID value=<<id>> emptyValue=<<qualify "stream-outliner">>>
   <div id=<<outlinerID>>>
     <$transclude

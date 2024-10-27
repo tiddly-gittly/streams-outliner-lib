@@ -23,3 +23,21 @@ title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
 !!! 节点最大宽度
 
 <<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:100 id:stream-outliner-3>>""">>
+
+!!! 模板维基化节点标题
+
+被维基化以生成新节点标题的维基文本。
+
+默认是用斜杠 `/` 连接条目名和随机数，不过你可以自定义标题的拼接方式。
+
+<<wikitext-example-without-html """<<stream-outliner Index4 newNodeTitle:"<<stream-root-title>>-<<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>>" id:stream-outliner-4>>""">>
+
+!! 用来作为新的节点模板
+
+这个条目将用作新节点的模板。您需要在这里填写一个现有的条目的标题。
+
+这里我们使用条目 [[$:/plugins/sq/streams-outliner-lib/language/zh-Hans/Name]] 作为例子。
+
+注意它只有在第二个节点才开始生效（先随便创建一个节点，然后按回车来创建第二个节点看看）。
+
+<<wikitext-example-without-html """<<stream-outliner Index5 newNodeTiddlerTemplate:"$:/plugins/sq/streams-outliner-lib/language/zh-Hans/Name" id:stream-outliner-5>>""">>

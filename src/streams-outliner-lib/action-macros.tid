@@ -130,9 +130,9 @@ title: $:/plugins/sq/streams-outliner-lib/action-macros
 \define add-node-actions(startText:"",insertPosition:"after",streamList:"")
 <!-- handle saving a node edit and creating a new subsequent node -->
 <$set name="parent" filter="[<currentTiddler>match<stream-root-title>] ~[{!!parent}] +[first[]]" select="0">
-<$wikify name="new-node" text={{$:/config/sq/streams/new-node-title}}>
+<$wikify name="new-node" text=<<newNodeTitle>>>
 <$wikify name="new-node" text={{{[[<<unusedtitle """]addsuffix<new-node>addsuffix[""">>]]}}}>
-	<$action-createtiddler $basetitle=<<new-node>> text=<<__startText__>> $template={{$:/config/sq/streams/new-node-tiddler-template}} parent=<<parent>> stream-type="default" stream-list=<<__streamList__>>/>
+	<$action-createtiddler $basetitle=<<new-node>> text=<<__startText__>> $template=<<newNodeTiddlerTemplate>> parent=<<parent>> stream-type="default" stream-list=<<__streamList__>>/>
 	<$set name="parent-nodes" filter="[<parent>get[stream-list]]" select="0">
 	<$set name="next-node" filter="[enlist<parent-nodes>is[tiddler]$insertPosition$<currentTiddler>]" select="0">
 	<$action-listops $tiddler=<<parent>> $field="stream-list" $subfilter="+[is[tiddler]] +[insertbefore:next-node<new-node>]"/>
@@ -309,7 +309,7 @@ title: $:/plugins/sq/streams-outliner-lib/action-macros
 </$list>
 <!-- if we are dropping onto a new parent, then we might need to handle modifier keys -->
 <$list filter="[<actionTiddler>get[parent]!match<parent>] [<actionTiddler>!has[parent]]" variable="_NULL">
-	<$wikify name="new-node" text={{$:/config/sq/streams/new-node-title}}>
+	<$wikify name="new-node" text=<<newNodeTitle>>>
 		<!-- ctrl modifier key on drop event -->
 		<!-- create a new node with text of dropped node -->
 		<$list filter="[<modifier>match{$:/config/sq/streams/dnd-modifier-copy-node}]" variable="_NULL">
