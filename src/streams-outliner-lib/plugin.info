@@ -1,13 +1,14 @@
 {
-	"title": "$:/plugins/sq/streams",
-	"name": "Streams",
-	"description": "Rapid data entry with a keyboard driven workflow. Divide content into smaller tiddlers as you write.",
+	"title": "$:/plugins/sq/streams-outliner-lib",
+	"name": "Streams outliner library",
+	"description": "Lightweight Outliner component extracted from Streams plugin, for use in other plugins. ",
 	"plugin-type": "plugin",
-	"plugin-priority": "1",
+	"plugin-priority": "10",
+  "stability": "STABILITY_1_EXPERIMENTAL",
 	"author": "Saq Imtiaz",
 	"version": "1.2.24",
 	"core-version": ">=5.1.23",
 	"list": "Settings CHANGELOG",
-	"source": "https://saqimtiaz.github.io/streams/",
+	"source": "https://tiddly-gittly.github.io/streams-outliner-lib/",
 	"dependents": "$:/plugins/flibbles/relink"
 }
