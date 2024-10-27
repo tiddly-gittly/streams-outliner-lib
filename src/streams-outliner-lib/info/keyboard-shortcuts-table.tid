@@ -1,0 +1,16 @@
+title: $:/plugins/sq/streams-outliner-lib/info/keyboard-shortcuts-table
+
+\procedure keyboard-shortcuts-table()
+<table>
+  <tbody>
+    <$list filter="[all[shadows+tiddlers]prefix[$:/config/ShortcutInfo/streams-]]">
+      <tr>
+        <td>{{!!text}}</td>
+        <td>
+          <$macrocall $name="displayshortcuts" $output="text/plain" shortcuts={{{[<currentTiddler>removeprefix[$:/config/ShortcutInfo/]addprefix[((]addsuffix[))]]}}} prefix="" separator=" " suffix=""/>
+        </td>
+      </tr>
+    </$list>
+  </tbody>
+</table>
+\end

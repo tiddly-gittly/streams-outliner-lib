@@ -1,5 +1,5 @@
 title: $:/plugins/sq/streams-outliner-lib/Settings
 tags: $:/tags/ControlPanel/SettingsTab
-caption: Outliner Lib
+caption: <<lingo Name $:/plugins/sq/streams-outliner-lib/language/>>
 
 <<tabs "$:/plugins/sq/streams-outliner-lib/Settings/config $:/plugins/sq/streams-outliner-lib/Settings/shortcuts" "$:/plugins/sq/streams-outliner-lib/Settings/config" "$:/state/streams/settings/tabs">>

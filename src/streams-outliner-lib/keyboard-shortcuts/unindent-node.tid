@@ -1,7 +1,7 @@
 title: $:/plugins/sq/streams-outliner-lib/keyboard-shortcuts/unindent-node
 tags: $:/tags/streams/keyboard-shortcuts $:/tags/streams/contextmenu
 key: ((streams-unindent))
-sq-contextmenu-name: Un-indent
+sq-contextmenu-name: <<lingo Unindent $:/plugins/sq/streams-outliner-lib/language/>>
 sq-contextmenu-subtitle:
 
 <<unindent-node-actions>>

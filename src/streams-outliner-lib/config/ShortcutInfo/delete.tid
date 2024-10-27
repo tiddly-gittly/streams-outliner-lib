@@ -1,3 +1,3 @@
 title: $:/config/ShortcutInfo/streams-delete
 
-Delete node
+<<lingo DeleteNode $:/plugins/sq/streams-outliner-lib/language/>>

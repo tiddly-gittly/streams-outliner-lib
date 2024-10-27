@@ -1,6 +1,6 @@
 title: $:/config/sq/streams/node-split-regexp
 description: Regular expression that is used to split longform text into multiple tiddlers
-caption: Regular expression used to split text
+caption: <<lingo NodeSplitRegexp $:/plugins/sq/streams-outliner-lib/language/>>
 settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input
 
 \n\n

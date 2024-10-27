@@ -1,6 +1,6 @@
 title: $:/config/sq/streams/exit-on-saving-empty-node
 description: Enable to exit edit mode on saving an empty node
-caption: Exit editing on saving an empty node
+caption: <<lingo ExitOnSavingEmptyNode $:/plugins/sq/streams-outliner-lib/language/>>
 settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input-switch
 
-no
+yes

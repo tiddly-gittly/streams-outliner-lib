@@ -1,3 +1,4 @@
 title: $:/config/ShortcutInfo/streams-focus-higher
 
-Move focus to higher node
+
+<<lingo MoveHigher $:/plugins/sq/streams-outliner-lib/language/>>

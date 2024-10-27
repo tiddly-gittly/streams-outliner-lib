@@ -1,0 +1,18 @@
+title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/keyboard-shortcuts
+
+\import [[$:/plugins/sq/streams-outliner-lib/info/keyboard-shortcuts-table]]
+
+!! Streams keyboard shortcuts
+
+<<keyboard-shortcuts-table>>
+
+快捷方式可以在[[控制面板|$:/core/ui/ControlPanel/KeyboardShortcuts]]中自定义。
+
+!!! 拖放
+
+* 按住 <kbd>control</kbd> 键进行拖放并创建另一个流贴子中的节点的副本。
+* 按住 <kbd>shift</kbd> 键进行拖放并创建另一个流贴子中的包含此节点内容的节点。
+
+''目前，出于设计考虑，不允许在同一根（故事）条目中复制/包含节点。''
+
+//需要注意的是，复制节点或将其包含到其他页面中并不会将节点的子节点包含进去，这是已知的限制。//

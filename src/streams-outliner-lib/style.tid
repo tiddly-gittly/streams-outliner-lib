@@ -290,12 +290,6 @@ span.sq-breadcrumbs-fragment a.tc-tiddlylink {
 	margin-bottom: -1.6em;
 }
 
-<$reveal state="$:/config/sq/streams/enable-edit-toolbar" type="nomatch" text="yes">
-.stream-node-block .tc-editor-toolbar {
-	display: none;
-}
-</$reveal>
-
 <$reveal state="$:/state/sq/streams/global-drag-state" type="match" text="yes">
 
 /** active drag css **/

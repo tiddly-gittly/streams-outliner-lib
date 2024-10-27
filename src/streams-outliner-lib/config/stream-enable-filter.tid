@@ -1,6 +1,0 @@
-title: $:/config/sq/streams/stream-enable-filter
-description: Filter that determines which tiddlers get the add node button at the bottom
-caption: Filter to enable Streams
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input
-
-[!is[shadow]]

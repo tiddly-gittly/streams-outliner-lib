@@ -13,5 +13,12 @@ title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
 <<wikitext-example-without-html """<<stream-outliner Index>>
 """>>
 
-<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index>>
+!!! 带面包屑导航
+
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1>>
+""">>
+
+!!! 节点编辑时带有工具栏
+
+<<wikitext-example-without-html """<<stream-outliner Index2 yes>>
 """>>

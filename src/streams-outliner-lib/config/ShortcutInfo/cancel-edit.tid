@@ -1,3 +1,3 @@
 title: $:/config/ShortcutInfo/streams-cancel-edit
 
-Cancel and exit editing
+<<lingo CancelEdit $:/plugins/sq/streams-outliner-lib/language/>>

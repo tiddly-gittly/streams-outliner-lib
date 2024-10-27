@@ -1,6 +1,6 @@
 title: $:/config/sq/streams/swipe-enabled
-description: Enable swipe to show context menu on touch devices.
-caption: Enable swipe to show context menu on nodes.
+description: <<lingo SwipeEnabled/Description $:/plugins/sq/streams-outliner-lib/language/>> 
+caption: <<lingo SwipeEnabled/Caption $:/plugins/sq/streams-outliner-lib/language/>>
 settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input-switch
 settings-group: swipe
 settings-group-header: 0

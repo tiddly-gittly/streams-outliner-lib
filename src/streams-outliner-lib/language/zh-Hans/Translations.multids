@@ -2,3 +2,32 @@ title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/
 
 Name: 大纲流组件
 Description: 从大纲流插件中提取的轻量级大纲组件，用于其他插件。
+
+Indent: 缩进
+Unindent: 取消缩进
+Open: 打开
+Rename: 重命名
+Delete: 删除
+KeyboardShortcuts: 快捷键 (?)
+
+CancelEdit: 取消并退出编辑
+DeleteNode: 删除节点
+DemoteNode: 降级节点
+MoveHigher: 将焦点移动到更高的节点
+MoveLower: 将焦点移至下级节点
+MergePrevious: 如果光标位于节点的开始位置，则与前一个节点合并
+Promote: 提升节点
+SaveContinue: 保存并创建下一个节点
+SaveExit: 保存并退出编辑
+SaveMultiple: 分割并保存为多个节点
+
+DndModifierCopyNode: 在拖动时复制节点的修饰符键
+DndModifierTranscludeNode: 在拖动时嵌入（Transclude）节点的修饰符键
+ExitOnSavingEmptyNode: 在保存空节点时退出编辑
+NodeSplitRegexp: 用于分割文本的正则表达式
+SwipeBehaviour/Caption: 划动动作
+SwipeBehaviour/Description: 选择移动端划动是显示上下文菜单，还是用于缩进/取消缩进节点。
+SwipeThreshold/Caption: 以像素为单位的滑动阈值
+SwipeThreshold/Description: 触发滑动的像素距离
+SwipeEnabled/Caption: 在节点上启用滑动。
+SwipeEnabled/Description: 在触摸设备上启用滑动（例如显示上下文菜单）。

@@ -13,5 +13,12 @@ Create an outliner that will add information to tiddler [[Index]]'s fields:
 <<wikitext-example-without-html """<<stream-outliner Index>>
 """>>
 
-<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index>>
+!!! Navigation with breadcrumbs
+
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1>>
+""">>
+
+!!! The node is edited with a toolbar
+
+<<wikitext-example-without-html """<<stream-outliner Index2 yes>>
 """>>

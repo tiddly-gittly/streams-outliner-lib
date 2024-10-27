@@ -2,3 +2,32 @@ title: $:/plugins/sq/streams-outliner-lib/language/en-GB/
 
 Name: Streams Component
 Description: Lightweight Outliner component extracted from Streams plugin, for use in other plugins. 
+
+Indent: Indent
+Unindent: Un-indent
+Open: Open
+Rename: Rename
+Delete: Delete
+KeyboardShortcuts: Keyboard Shortcuts (?)
+
+CancelEdit: Cancel and exit editing
+DeleteNode: Delete node
+DemoteNode: Demote node
+MoveHigher: Move focus to higher node
+MoveLower: Move focus to lower node
+MergePrevious: Merge with previous node, if caret is at start of a node
+Promote: Promote node
+SaveContinue: Save and create next node
+SaveExit: Save and exit editing
+SaveMultiple: Split and save as multiple nodes
+
+DndModifierCopyNode: Modifier key to copy a node when dragging
+DndModifierTranscludeNode: Modifier key to transclude a node when dragging.
+ExitOnSavingEmptyNode: Exit editing on saving an empty node
+NodeSplitRegexp: Regular expression used to split text
+SwipeBehaviour/Caption: Swipe behaviour
+SwipeBehaviour/Description: Choose whether swipe should show a contextmenu, or be used to indent/unindent nodes.
+SwipeThreshold/Caption: Swipe threshold in pixels
+SwipeThreshold/Description: Distance in pixels that triggers a swipe
+SwipeEnabled/Caption: Enable swipe on nodes.
+SwipeEnabled/Description: Enable swipe (i.g. to show context menu) on touch devices.

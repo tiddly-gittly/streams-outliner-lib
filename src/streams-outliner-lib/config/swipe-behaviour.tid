@@ -1,9 +1,8 @@
 title: $:/config/sq/streams/swipe-behaviour
-description: Choose whether swipe should show a contextmenu, or be used to indent/unindent nodes.
-caption: Swipe behaviour
+description: <<lingo SwipeBehaviour/Description $:/plugins/sq/streams-outliner-lib/language/>> 
+caption: <<lingo SwipeBehaviour/Caption $:/plugins/sq/streams-outliner-lib/language/>>
 settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/select
 option-names: [[Show ContextMenu]] [[Indent / Un-indent]]
 option-values: contextmenu indent
-condition: [[$:/config/sq/streams/swipe-behaviour-animated]!is[missing]]
 
 contextmenu
