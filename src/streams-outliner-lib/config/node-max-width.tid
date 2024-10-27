@@ -1,6 +1,0 @@
-title: $:/config/sq/streams/node-max-width
-description: Maximum displayed width of a Stream node
-caption: Maximum node width
-settings-template: $:/plugins/sq/streams-outliner-lib/ui/templates/settings/input
-
-550

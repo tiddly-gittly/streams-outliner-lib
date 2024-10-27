@@ -1,28 +1,60 @@
 title: $:/plugins/sq/streams-outliner-lib/stream-view-template
 tags: $:/tags/Global
 
-\procedure stream-outliner(
-  currentTiddler,
-  enableEditToolbar:"no"
+\define stream-dynamic-styles(
+  outlinerID,
+  enableEditToolbar,
+  nodeMaxWidth
 )
-<%if [<enableEditToolbar>compare:string:eq[no]] %>
+<%if [[$enableEditToolbar$]compare:string:eq[no]] %>
   <style>
-    .stream-node-block .tc-editor-toolbar {
+    #$outlinerID$ .stream-node-block .tc-editor-toolbar {
       display: none;
     }
   </style>
 <%endif%>
-{{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+<style>
+  #$outlinerID$ .stream-node-block {
+    max-width: $nodeMaxWidth$px;
+  }
+  #$outlinerID$ span.sq-breadcrumbs-fragment {
+    max-width: calc($nodeMaxWidth$px - 50px);
+  }
+</style>
+\end
+
+\procedure stream-outliner(
+  currentTiddler,
+  id,
+  enableEditToolbar:"no",
+  nodeMaxWidth:550
+)
+\whitespace trim
+
+<$set name=outlinerID value=<<id>> emptyValue=<<qualify "stream-outliner">>>
+  <div id=<<outlinerID>>>
+    <$transclude
+      $variable="stream-dynamic-styles"
+      outlinerID=<<outlinerID>>
+      enableEditToolbar=<<enableEditToolbar>>
+      nodeMaxWidth=<<nodeMaxWidth>>
+    />
+    {{||$:/plugins/sq/streams-outliner-lib/nodes-list-template}}
+  </div>
+</$set>
 \end
 
 \procedure stream-outliner-breadcrumbs(
   currentTiddler,
-  enableEditToolbar:"no"
+  enableEditToolbar,
+  nodeMaxWidth
 )
 <<stream-show-breadcrumbs>>
 
 <$transclude
   $variable="stream-outliner"
   currentTiddler=<<currentTiddler>>
+  enableEditToolbar=<<enableEditToolbar>>
+  nodeMaxWidth=<<nodeMaxWidth>>
 />
 \end

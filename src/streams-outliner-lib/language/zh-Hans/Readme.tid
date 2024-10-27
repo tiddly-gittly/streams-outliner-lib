@@ -10,15 +10,16 @@ title: $:/plugins/sq/streams-outliner-lib/language/zh-Hans/Readme
 
 创建一个大纲，将信息添加到条目 [[Index]] 的字段里：
 
-<<wikitext-example-without-html """<<stream-outliner Index>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner Index>>""">>
 
 !!! 带面包屑导航
 
-<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1 id:stream-outliner-1>>""">>
 
 !!! 节点编辑时带有工具栏
 
-<<wikitext-example-without-html """<<stream-outliner Index2 yes>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner Index2 enableEditToolbar:yes id:stream-outliner-2>>""">>
+
+!!! 节点最大宽度
+
+<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:100 id:stream-outliner-3>>""">>
