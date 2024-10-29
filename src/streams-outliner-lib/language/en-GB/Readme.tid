@@ -22,10 +22,15 @@ Read the interactive doc on [ext[https://tiddly-gittly.github.io/streams-outline
 
 Create an outliner that will add information to tiddler [[Index]]'s fields:
 
-<<wikitext-example-without-html """<<stream-outliner Index>>
-""">>
+<<wikitext-example-without-html """<<stream-outliner Index>>""">>
+
+Or use the transclude widget:
+
+<<wikitext-example-without-html """<$transclude $variable="stream-outliner" currentTiddler="Index"/>""">>
 
 !!! Navigation with breadcrumbs
+
+Here we have switched to the `stream-outliner-breadcrumbs` macro, which comes with breadcrumb navigation (see Breadcrumb Navigation in Other Tools below). And we've added an `id` parameter so that we can create multiple outlines on the same page, which, as you may have noticed, can interact with each other and display the same content at the same time if you don't specify the `id` parameter.
 
 <<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1 id:stream-outliner-1>>""">>
 

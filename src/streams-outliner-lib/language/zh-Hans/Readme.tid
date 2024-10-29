@@ -24,7 +24,13 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 <<wikitext-example-without-html """<<stream-outliner Index>>""">>
 
+或使用嵌入微件：
+
+<<wikitext-example-without-html """<$transclude $variable="stream-outliner" currentTiddler="Index"/>""">>
+
 !!! 带面包屑导航
+
+这里我们改用 `stream-outliner-breadcrumbs` 宏，它自带面包屑导航（详见下面的其它工具里的面包屑导航）。而且我们添加了一个 `id` 参数，这样我们可以在同一个页面上创建多个大纲，你可能已经注意到了，如果不指定 `id` 参数，多个大纲会互相影响、同时展示相同的内容。
 
 <<wikitext-example-without-html """<<stream-outliner-breadcrumbs Index1 id:stream-outliner-1>>""">>
 
