@@ -15,10 +15,10 @@ tags: $:/tags/Global
 <%endif%>
 <style>
   #$outlinerID$ .stream-node-block {
-    max-width: $nodeMaxWidth$px;
+    max-width: $nodeMaxWidth$;
   }
   #$outlinerID$ span.sq-breadcrumbs-fragment {
-    max-width: calc($nodeMaxWidth$px - 50px);
+    max-width: calc($nodeMaxWidth$ - 50px);
   }
 </style>
 \end
@@ -27,7 +27,7 @@ tags: $:/tags/Global
   currentTiddler,
   id,
   enableEditToolbar:"no",
-  nodeMaxWidth:550,
+  nodeMaxWidth:100%,
   newNodeTitle:"""<<stream-root-title>>/<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>""",
   newNodeTiddlerTemplate,
 )
@@ -48,7 +48,9 @@ tags: $:/tags/Global
 \procedure stream-outliner-breadcrumbs(
   currentTiddler,
   enableEditToolbar,
-  nodeMaxWidth
+  nodeMaxWidth,
+  newNodeTitle,
+  newNodeTiddlerTemplate,
 )
 <<stream-show-breadcrumbs>>
 
@@ -57,5 +59,7 @@ tags: $:/tags/Global
   currentTiddler=<<currentTiddler>>
   enableEditToolbar=<<enableEditToolbar>>
   nodeMaxWidth=<<nodeMaxWidth>>
+  newNodeTitle=<<newNodeTitle>>
+  newNodeTiddlerTemplate=<<newNodeTiddlerTemplate>>
 />
 \end

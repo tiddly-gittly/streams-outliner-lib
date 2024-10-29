@@ -40,7 +40,9 @@ Here we have switched to the `stream-outliner-breadcrumbs` macro, which comes wi
 
 !!! Maximum width of node
 
-<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:100 id:stream-outliner-3>>""">>
+You can use any CSS value, like `80vw` `80%` `80px` `80em` `80rem` `80ch` `80ex` `80mm` `80cm` `80in` `80pt` `80pc`, just remember to include the unit.
+
+<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:80% id:stream-outliner-3>>""">>
 
 !!! Template wikified for node title
 

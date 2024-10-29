@@ -40,7 +40,9 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 !!! 节点最大宽度
 
-<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:100 id:stream-outliner-3>>""">>
+你可以使用任何 CSS 值，比如 `80vw` `80%` `80px` `80em` `80rem` `80ch` `80ex` `80mm` `80cm` `80in` `80pt` `80pc`，反正一定记得带单位。
+
+<<wikitext-example-without-html """<<stream-outliner Index3 nodeMaxWidth:80% id:stream-outliner-3>>""">>
 
 !!! 模板维基化节点标题
 
