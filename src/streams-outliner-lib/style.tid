@@ -242,9 +242,10 @@ tags: [[$:/tags/Stylesheet]]
 	resize: none;
 }
 
-.stream-node-block textarea.streams-editor {
+.stream-node-block textarea.streams-editor, .stream-node-block iframe.streams-editor {
 	line-height:1.5em;
 	margin-bottom: 0.6em;
+	width: 100%;
 }
 
 .stream-node-block > h1:first-child,
