@@ -81,7 +81,7 @@ title: your-breadcrumbs-view-template
 <%endif%>
 ```
 
-Or show breadcrumb navigation only on outline node tiddlers in [[Index]] tiddlers (each outline node is a tiddler, and they are available via the `get-stream-nodes[]` filter), and do a quick pre-filter with `[<currentTiddler>has[stream-type]]` to avoid performing time-consuming filter node filters on every open non-outline node tiddler.
+Or show breadcrumb navigation only on outline node tiddlers in [[Index]] tiddlers (each outline node is a tiddler, and they are available via the `get-stream-nodes[]` filter, use `exclusive` suffix to exclude the root node.), and do a quick pre-filter with `[<currentTiddler>has[stream-type]]` to avoid performing time-consuming filter node filters on every open non-outline node tiddler.
 
 When you use it, remember to modify `Index` to the name of the tiddler you care about.
 
@@ -90,7 +90,7 @@ tags: $:/tags/ViewTemplate
 list-before: $:/core/ui/ViewTemplate/body
 title: your-breadcrumbs-view-template
 
-<%if [<currentTiddler>has[stream-type]] +[[Index]get-stream-nodes[]title<currentTiddler>] %>
+<%if [<currentTiddler>has[stream-type]] +[[Index]get-stream-nodes:exclusive[]title<currentTiddler>] %>
   <<stream-show-breadcrumbs>>
 <%endif%>
 ```

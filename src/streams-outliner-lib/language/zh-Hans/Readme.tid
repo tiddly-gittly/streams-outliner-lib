@@ -82,7 +82,7 @@ title: your-breadcrumbs-view-template
 <%endif%>
 ```
 
-或只在[[Index]] 条目里的大纲节点条目上展示面包屑导航（每个大纲节点都是一个条目，通过 `get-stream-nodes[]` 筛选器可以获取到它们），并使用 `[<currentTiddler>has[stream-type]]` 来做一个快速的预筛选，以免在每个打开的非大纲节点条目上都要执行费时的筛选器节点筛选器。
+或只在[[Index]] 条目里的大纲节点条目上展示面包屑导航（每个大纲节点都是一个条目，通过 `get-stream-nodes[]` 筛选器可以获取到它们，使用 `exclusive` 后缀排除根节点。），并使用 `[<currentTiddler>has[stream-type]]` 来做一个快速的预筛选，以免在每个打开的非大纲节点条目上都要执行费时的筛选器节点筛选器。
 
 你在使用时，记得修改 `Index` 为你关心的条目名。
 
