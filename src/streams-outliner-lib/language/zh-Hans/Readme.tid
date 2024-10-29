@@ -16,7 +16,9 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 <<lingo Description>>
 
-!! 使用方法
+阅读 [ext[https://tiddly-gittly.github.io/streams-outliner-lib/]] 上的互动文档。
+
+!! 大纲使用方法
 
 创建一个大纲，将信息添加到条目 [[Index]] 的字段里：
 
@@ -42,7 +44,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 <<wikitext-example-without-html """<<stream-outliner Index4 newNodeTitle:"<<stream-root-title>>-<<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>>" id:stream-outliner-4>>""">>
 
-!! 用来作为新的节点模板
+!!! 用来作为新的节点模板
 
 这个条目将用作新节点的模板。您需要在这里填写一个现有的条目的标题。
 
@@ -51,3 +53,37 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 注意它只有在第二个节点才开始生效（先随便创建一个节点，然后按回车来创建第二个节点看看）。
 
 <<wikitext-example-without-html """<<stream-outliner Index5 newNodeTiddlerTemplate:"$:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Name" id:stream-outliner-5>>""">>
+
+!! 其它工具
+
+!!! 面包屑导航
+
+<<wikitext-example-without-html """<<stream-show-breadcrumbs>>""">>
+
+直接使用它可能没什么作用，一般是把它加到一个条目查看模板上使用，例如下面这个条目。
+
+你可以修改 `tags[XXX]` 这部分来精确匹配你的插件提供的条目。在这里保持精确可以避免你的条目查看模板在其他人的插件的条目上产生影响，其他人可能不希望展示面包屑导航。
+
+```tid
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+title: your-breadcrumbs-view-template
+
+<%if [<currentTiddler>has[stream-type]tags[XXX]] %>
+  <<stream-show-breadcrumbs>>
+<%endif%>
+```
+
+或只在[[Index]] 条目里的大纲节点条目上展示面包屑导航（每个大纲节点都是一个条目，通过 `get-stream-nodes[]` 筛选器可以获取到它们），并使用 `[<currentTiddler>has[stream-type]]` 来做一个快速的预筛选，以免在每个打开的非大纲节点条目上都要执行费时的筛选器节点筛选器。
+
+你在使用时，记得修改 `Index` 为你关心的条目名。
+
+```tid
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+title: your-breadcrumbs-view-template
+
+<%if [<currentTiddler>has[stream-type]] +[[Index]get-stream-nodes[]title<currentTiddler>] %>
+  <<stream-show-breadcrumbs>>
+<%endif%>
+```

@@ -1,22 +1,20 @@
 title: $:/plugins/linonetwo/streams-outliner-lib/breadcrumbs-view-template
 tags: $:/tags/Global
 
-\whitespace trim
 \procedure stream-show-breadcrumbs()
-<$list filter="[<currentTiddler>has[stream-type]]">
-	<$list filter="[<currentTiddler>has[parent]]">
-		<$set name="currentTiddler" filter="[{!!parent}]" select="0">
-			<<stream-show-breadcrumbs>>
-		</$set>
-	</$list>	
-	<$list filter="[<currentTiddler>!match<storyTiddler>]">
-		<$wikify name="display-title" text={{{ [<currentTiddler>!is[binary]get[text]!is[blank]] ~[{!!title}] }}}>
-			<span class="sq-breadcrumbs-fragment">
-			<$link to=<<currentTiddler>>>
-				<$text text={{{ [<display-title>split[]first[50]join[]] }}}/>
-			</$link>>
-			</span>
-		</$wikify>
-	</$list>
-</$list>
+\whitespace trim
+<%if [<currentTiddler>has[parent]] %>
+	<$set name="currentTiddler" filter="[{!!parent}]" select="0">
+		<<stream-show-breadcrumbs>>
+	</$set>
+<%endif%>
+<%if [<currentTiddler>!match<storyTiddler>] %>
+	<$wikify name="display-title" text={{{ [<currentTiddler>!is[binary]get[text]!is[blank]] ~[{!!title}] }}}>
+		<span class="sq-breadcrumbs-fragment">
+		<$link to=<<currentTiddler>>>
+			<$text text={{{ [<display-title>split[]first[50]join[]] }}}/>
+		</$link>>
+		</span>
+	</$wikify>
+<%endif%>
 \end

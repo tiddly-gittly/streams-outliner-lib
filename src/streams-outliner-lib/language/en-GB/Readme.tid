@@ -16,7 +16,9 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
 
 <<lingo Description>>
 
-!! Usage
+Read the interactive doc on [ext[https://tiddly-gittly.github.io/streams-outliner-lib/]].
+
+!! Outliner Usage
 
 Create an outliner that will add information to tiddler [[Index]]'s fields:
 
@@ -53,3 +55,35 @@ Note that it only takes effect on the second node (create a random node first, t
 
 <<wikitext-example-without-html """<<stream-outliner Index4 newNodeTiddlerTemplate:"$:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Name" id:stream-outliner-5>>""">>
 
+!! Other Tools
+
+!!! Breadcrumb Navigation
+
+It's probably not useful to use it directly, it's generally used by adding it to a tiddler viewing template, such as the one below.
+
+You can modify the `tags[XXX]` part to precisely match the tiddlers provided by your plugin. Keeping it precise here prevents your tiddler view template from having an effect on the tiddlers of other people's plugins, who may not want to show breadcrumb navigation.
+
+
+```tid
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+title: your-breadcrumbs-view-template
+
+<%if [<currentTiddler>has[stream-type]tags[XXX]] %>
+  <<stream-show-breadcrumbs>>
+<%endif%>
+```
+
+Or show breadcrumb navigation only on outline node tiddlers in [[Index]] tiddlers (each outline node is a tiddler, and they are available via the `get-stream-nodes[]` filter), and do a quick pre-filter with `[<currentTiddler>has[stream-type]]` to avoid performing time-consuming filter node filters on every open non-outline node tiddler.
+
+When you use it, remember to modify `Index` to the name of the tiddler you care about.
+
+```tid
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+title: your-breadcrumbs-view-template
+
+<%if [<currentTiddler>has[stream-type]] +[[Index]get-stream-nodes[]title<currentTiddler>] %>
+  <<stream-show-breadcrumbs>>
+<%endif%>
+```
