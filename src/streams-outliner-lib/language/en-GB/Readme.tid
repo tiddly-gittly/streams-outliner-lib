@@ -1,6 +1,16 @@
 title: $:/plugins/linonetwo/streams-outliner-lib/language/en-GB/Readme
 
 \procedure lingo-base() $:/plugins/linonetwo/streams-outliner-lib/language/
+\procedure wikitext-example-without-html(src)
+<div class="doc-example">
+	<$macrocall $name="copy-to-clipboard-above-right" src=<<src>>/>
+	<$codeblock code=<<src>>/>
+	<p>
+		That renders as:
+	</p>
+	<$transclude $variable="src" $mode="block"/>
+</div>
+\end
 
 ! <<lingo Name>>
 
