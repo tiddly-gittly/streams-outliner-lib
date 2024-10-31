@@ -2,7 +2,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 
 \whitespace trim
 
-\define swiped-right-actions()
+\procedure swiped-right-actions()
 <$list filter="[{$:/config/sq/streams/swipe-behaviour}match[contextmenu]]" variable="_NULL">
 <$action-setfield $tiddler=<<contextmenu-state>> $field="current" $value=<<dom-data-node-title>>/>
 <$action-setfield $tiddler=<<contextmenu-state>> $field="position" $value={{$:/config/sq/streams/swipe-contextmenu-position}}/>
@@ -15,7 +15,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 </$list>
 \end
 
-\define swiped-left-actions()
+\procedure swiped-left-actions()
 <$list filter="[{$:/config/sq/streams/swipe-behaviour}match[indent]]" variable="_NULL">
 <$vars currentTiddler=<<dom-data-node-title>>>
 <<unindent-node-actions>>
@@ -24,14 +24,14 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define oncontext-menu-actions()
+\procedure oncontext-menu-actions()
 <$action-setfield $tiddler=<<contextmenu-state>> $field="current" $value=<<dom-data-node-title>>/>
 <$action-setfield $tiddler=<<contextmenu-state>> $field="position" $value="left"/>
 <$action-popup $coords=<<tv-popup-coords>> $state=<<contextmenu-state>>/>
 \end
 
 
-\define node-ctrl-btn-actions()
+\procedure node-ctrl-btn-actions()
 <$list filter="[<dom-data-btn-role>match[stream-node-visibility]]" variable="NULL">
 <$action-setfield $tiddler=<<dom-data-rowchildren-visibility-state>> text={{{ [<dom-data-rowchildren-visibility-state>get[text]match[hide]then[show]else[hide]] }}} />
 </$list>
@@ -41,7 +41,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define toggle-row-edit-state()
+\procedure toggle-row-edit-state()
 <$action-unselect/>
 <$list filter="[<row-edit-state>get[text]else[]!match<dom-data-node-title>]" variable="NULL">
 <$list filter="[[$:/status/IsReadOnly]get[text]!is[blank]else[no]!match[yes]]" variable="NULL">
@@ -52,7 +52,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define save-edit-node-actions()
+\procedure save-edit-node-actions()
 <!-- handle saving a node being edited -->
 <!-- XXX draft -->
 <!--<$action-deletefield $tiddler={{{ [<dom-data-node-title>!is[blank]else<currentTiddler>] }}} $field="throttle.refresh" />-->
@@ -60,7 +60,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define indent-node-actions()
+\procedure indent-node-actions()
 <!-- handle indenting a node -->
 <$vars previous-node={{{ [{!!parent}get[stream-list]enlist-input[]is[tiddler]before<currentTiddler>] }}}>
 <$list filter="[<previous-node>minlength[1]]" variable="_NULL">
@@ -72,7 +72,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define unindent-node-actions()
+\procedure unindent-node-actions()
 <!-- handle unindenting a node -->
 <$vars new-parent={{{ [{!!parent}get[parent]] }}} new-next-node={{{ [{!!parent}get[parent]get[stream-list]enlist-input[]is[tiddler]after{!!parent}] }}}>
     <$list filter="[<new-parent>minlength[1]]" variable="_NULL">
@@ -84,7 +84,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define demote-node-actions()
+\procedure demote-node-actions()
 <!-- move a node below the next node -->
 <$list filter="[{!!parent}get[stream-list]enlist-input[]after<currentTiddler>]" variable="next-node">
     <$action-listops $tiddler={{!!parent}} $field="stream-list" $subfilter="+[insertbefore:currentTiddler<next-node>]"/>
@@ -92,7 +92,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define promote-node-actions()
+\procedure promote-node-actions()
 <!-- move a node above the previous node -->
 <$list filter="[{!!parent}get[stream-list]enlist-input[]before<currentTiddler>]" variable="previous-node">
     <$action-listops $tiddler={{!!parent}} $field="stream-list" $subfilter="+[insertbefore:previous-node<currentTiddler>]"/>
@@ -100,7 +100,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define save-node-actions()
+\procedure save-node-actions()
 <$list filter="""[{$:/config/sq/streams/split-at-caret}match[yes]]""" variable="_NULL" emptyMessage=<<add-node-actions>> >
 <$list filter="[<selectionEnd>!is[blank]else[0]!match[0]]" variable="_NULL">
 <$list filter="[<currentTiddler>get[text]length[]subtract<selectionEnd>!match[0]]" variable="_NULL" emptyMessage=<<add-node-actions>>>
@@ -119,7 +119,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 </$list>
 \end
 
-\define add-new-node-actions()
+\procedure add-new-node-actions()
 <!-- used by new node button at the bottom of a stream -->
 <$list filter="[[$:/status/IsReadOnly]get[text]!is[blank]else[no]!match[yes]]" variable="NULL">
 <<add-node-actions>>
@@ -151,7 +151,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define save-multiple-actions()
+\procedure save-multiple-actions()
 <!-- handle multiple nodes entered at once -->
 <$action-confirm $message="Split into multiple nodes?" $prompt={{$:/config/sq/streams/prompt-split-to-multiple}}>
 <$list filter="[{!!text}splitregexp{$:/config/sq/streams/node-split-regexp}rest[]reverse[]]" variable="fragment">
@@ -165,7 +165,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define cancel-edit-node-actions()
+\procedure cancel-edit-node-actions()
 <!-- handle cancelling the edit on an empty node -->
 <$list filter="[<currentTiddler>!has[stream-list]!has[text]]" variable="_NULL">
 	<$action-listops $tiddler={{{[{!!parent}]}}} $field="stream-list" $subfilter="+[is[tiddler]] -[<currentTiddler>]"/>
@@ -176,7 +176,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define merge-with-previous-node-actions()
+\procedure merge-with-previous-node-actions()
 <!-- handle backspace on an empty node -->
 <$list filter="""[<currentTiddler>!has[text]]""" variable="_NULL">
 	<<cancel-edit-node-actions>>
@@ -209,7 +209,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define delete-node-actions()
+\procedure delete-node-actions()
 <$action-confirm  $message="Do you wish to delete this tiddler?">
 	<$transclude tiddler="$:/plugins/linonetwo/streams-outliner-lib/delete-hook/actions"/>
 	<$action-deletetiddler $tiddler=<<currentTiddler>> />
@@ -220,7 +220,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define rename-node-actions()
+\procedure rename-node-actions()
 <$action-withinput message="Rename this tiddler?" default=<<currentTiddler>> actions="""
 	<$action-sendmessage $message="tm-rename-tiddler" from=<<currentTiddler>> to=<<userInput>>/>
 	<$list filter="[<row-edit-state>match<currentTiddler>]" variable="_NULL">
@@ -230,7 +230,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define find-last-child()
+\procedure find-last-child()
 <!-- used by focus-higher-node-actions macro -->
 <$list filter="[enlist{!!stream-list}is[tiddler]last[]]" emptyMessage="""<$action-setfield $tiddler=<<row-edit-state>> text=<<currentTiddler>>/>""">
 	<$macrocall $name="find-last-child"/>
@@ -238,7 +238,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define focus-higher-node-actions()
+\procedure focus-higher-node-actions()
 <!-- handles moving up in the nodes with the keyboard -->
 <$vars old-parent={{!!parent}} >
 <$list filter="[{!!parent}get[stream-list]enlist-input[]is[tiddler]before<currentTiddler>]" emptyMessage="""<$list filter="[<old-parent>!match<stream-root-title>]"><$action-setfield $tiddler=<<row-edit-state>> text=<<old-parent>> /></$list>""">
@@ -248,7 +248,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define find-next-downwards-node()
+\procedure find-next-downwards-node()
 <!-- used by focus-lower-node-actions macro -->
 <$list filter="[<currentTiddler>has[parent]]" variable="_NULL">
 <$set name="old-parent" value={{!!parent}} select="0">
@@ -262,7 +262,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define focus-lower-node-actions()
+\procedure focus-lower-node-actions()
 <!-- handles moving down in the nodes with the keyboard -->
 <!--if children, get the first child-->
 <$list filter="[<currentTiddler>get[stream-list]enlist-input[]is[tiddler]first[]]" variable="next-node">
@@ -278,7 +278,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define node-drag-start-actions()
+\procedure node-drag-start-actions()
 <!-- parameter to draggable widget -->
 <$action-setfield $tiddler=<<drag-title-state>> text=<<currentTiddler>>/>
 <$action-setfield $tiddler="$:/state/sq/nodes/global-drag-state" text="yes"/>
@@ -289,13 +289,13 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \end
 
 
-\define node-drag-end-actions()
+\procedure node-drag-end-actions()
 <!-- parameter to draggable widget -->
 <$action-deletetiddler $filter="""[<drag-title-state>][<drag-title-nextsibling-state>][[$:/state/sq/nodes/global-drag-state]]""" />
 \end
 
 
-\define stream-drop-actions()
+\procedure stream-drop-actions()
 <!-- handles drag and drop -->
 <$vars startBrackets="[[" endBrackets="]]" parent=<<dropTargetTiddler>> >
 <$vars actionTiddler={{{[<actionTiddler>trim:suffix<endBrackets>trim:prefix<startBrackets>]}}}>
