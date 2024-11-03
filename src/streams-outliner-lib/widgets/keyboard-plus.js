@@ -39,7 +39,7 @@ KeyboardWidget.prototype.render = function(parent,nextSibling) {
 	
 	
 	// Add a keyboard event handler
-	domNode.addEventListener("keydown",function (event) {
+	domNode.addEventListener("keydown", (event) => {
 			// CM triggers two events
 			// second event has:
 			//		defaultPrevented : true
@@ -96,7 +96,7 @@ KeyboardWidget.prototype.execute = function() {
 			tiddlerFields = this.wiki.getTiddler(title).fields;
 		this.shortcutKeysList[i] = tiddlerFields.key !== undefined ? tiddlerFields.key : undefined;
 		this.shortcutActionList[i] = tiddlerFields.text;
-		this.shortcutPreventDefaultList[i] = tiddlerFields["prevent-default"] && tiddlerFields["prevent-default"] === "no" ? false : true;
+		this.shortcutPreventDefaultList[i] = tiddlerFields["prevent-default"] === "no" ? false : true;
 		this.shortcutParsedList[i] = this.shortcutKeysList[i] !== undefined ? $tw.keyboardManager.parseKeyDescriptors(this.shortcutKeysList[i]) : undefined;
 	}
 	

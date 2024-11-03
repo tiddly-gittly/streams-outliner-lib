@@ -3,5 +3,6 @@ tags: $:/tags/streams/keyboard-shortcuts $:/tags/streams/contextmenu
 key: ((streams-indent))
 sq-contextmenu-name : <<lingo Indent $:/plugins/linonetwo/streams-outliner-lib/language/>>
 sq-contextmenu-subtitle:
+prevent-default: no
 
 <<indent-node-actions>>
