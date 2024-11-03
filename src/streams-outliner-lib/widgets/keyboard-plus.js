@@ -136,31 +136,46 @@ KeyboardWidget.prototype.invokeActionString = function(actions,triggeringWidget,
 		variables = {};
 	}
 	
-	var activeElement = document.activeElement;
-	var selection;
-	if(activeElement && activeElement.tagName === "IFRAME") {
-		var idoc = activeElement.contentDocument || activeElement.contentWindow.document;
-		activeElement = idoc.activeElement;
-		selection = idoc.getSelection();
-	} else {
-		selection = window.getSelection();
-	}
-
-	if(window.CodeMirror && document.activeElement.closest(".CodeMirror")) {
-		var cm = document.activeElement.closest(".CodeMirror").CodeMirror;
-		var cursor = cm.getCursor("start");
-		var startRange = cm.getRange({"line":0,"ch":0},{"line":cursor.line,"ch":cursor.ch});
-		var selectionStart = startRange.length;
-		var selection = cm.getSelection();
-		var selectionEnd = selectionStart + selection.length;
+	const activeElement = document.activeElement;
+	const cm6Dom = activeElement?.closest?.(".cm-editor")?.parentNode
+	const cm5 = activeElement?.closest?.(".CodeMirror")?.CodeMirror;
+	if (cm6Dom && cm6Dom.cm6) {
+		const editor = cm6Dom.cm6;
+		const cursor = editor.state.selection.main.head; // 获取光标位置
+    const line = editor.state.doc.lineAt(cursor); // 获取光标所在行
+    const startRange = editor.state.sliceDoc(0, cursor); // 获取从开始到光标的内容
+    
+    const selectionStart = startRange.length;
+    const selection = editor.state.sliceDoc(editor.state.selection.main.from, editor.state.selection.main.to);
+    const selectionEnd = selectionStart + selection.length;
 		
 		variables["selectionStart"] = startRange.length.toString();
 		variables["selectionEnd"] = (selectionStart + selection.length).toString();
-		variables["selection"] = cm.getSelection().toString();
-	} else if(activeElement && selection && ((activeElement.tagName === "INPUT" && activeElement.type === "TEXT") || activeElement.tagName === "TEXTAREA")) {
-		variables["selectionStart"] = activeElement.selectionStart.toString();
-		variables["selectionEnd"] = activeElement.selectionEnd.toString();
 		variables["selection"] = selection.toString();
+	} else if ((activeElement?.tagName === "INPUT" && activeElement?.type === "TEXT") || activeElement?.tagName === "TEXTAREA") {
+		let selection;
+		if(activeElement && activeElement.tagName === "IFRAME") {
+			var idoc = activeElement.contentDocument || activeElement.contentWindow.document;
+			activeElement = idoc.activeElement;
+			selection = idoc.getSelection();
+		} else {
+			selection = window.getSelection();
+		}
+		if (selection) {
+			variables["selectionStart"] = activeElement.selectionStart.toString();
+			variables["selectionEnd"] = activeElement.selectionEnd.toString();
+			variables["selection"] = selection.toString();
+		}
+	} else if (cm5) {
+		const cursor = cm5.getCursor("start");
+		const startRange = cm5.getRange({"line":0,"ch":0},{"line":cursor.line,"ch":cursor.ch});
+		const selectionStart = startRange.length;
+		const selection = cm5.getSelection();
+		const selectionEnd = selectionStart + selection.length;
+		
+		variables["selectionStart"] = startRange.length.toString();
+		variables["selectionEnd"] = (selectionStart + selection.length).toString();
+		variables["selection"] = cm5.getSelection().toString();
 	}
 
 	//this.selection_original_invokeActionString(actions,triggeringWidget,event,variables);
