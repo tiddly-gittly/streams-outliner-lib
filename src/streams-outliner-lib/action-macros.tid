@@ -177,10 +177,10 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 
 \procedure cancel-edit-node-actions()
 <!-- handle cancelling the edit on an empty node -->
-<$list filter="[<currentTiddler>!has[stream-list]!has[text]]" variable="_NULL">
+<%if [<currentTiddler>!has[stream-list]!has[text]] %>
 	<$action-listops $tiddler={{{[{!!parent}]}}} $field="stream-list" $subfilter="+[is[tiddler]] -[<currentTiddler>]"/>
 	<$action-deletetiddler $tiddler=<<currentTiddler>> />
-</$list>
+<%endif%>
 <!--<$action-deletefield $tiddler=<<currentTiddler>> $field="throttle.refresh" />-->
 <$action-deletetiddler $tiddler=<<row-edit-state>> />
 \end
@@ -188,33 +188,33 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 
 \procedure merge-with-previous-node-actions()
 <!-- handle backspace on an empty node -->
-<$list filter="""[<currentTiddler>!has[text]]""" variable="_NULL">
+<%if [<currentTiddler>!has[text]] %>
 	<<cancel-edit-node-actions>>
 	<<focus-higher-node-actions>>
-</$list>
+<%endif%>
 
-<$list filter="""[<currentTiddler>has[text]]""" variable="_NULL">
-<$list filter="[<selectionEnd>match[0]]" variable="_NULL">
+<%if [<currentTiddler>has[text]] %>
+<%if [<selectionEnd>match[0]] %>
 
 <!--<$action-log/>-->
 	<$set name="parent" value={{!!parent}} select="0">
 	<$set name="stream-list" filter="[<parent>get[stream-list]]" select="0">
 	<$list filter="[enlist<stream-list>before<currentTiddler>]" variable="previous-node">
-		<$list filter="[<previous-node>!has[stream-list]]" variable="_NULL">
-		<$action-confirm $message="Merge with previous node?" $prompt={{$:/config/sq/streams/prompt-merge-with-previous}}>
-			<$action-setfield $tiddler="$:/state/sq/streams/caret-position" text={{{[<previous-node>get[text]length[]]}}}/>
-			<$action-setfield $tiddler=<<previous-node>> text={{{[<previous-node>get[text]!is[blank]else[]addsuffix{!!text}]}}} stream-list={{!!stream-list}}/>
-			<$action-setfield $tiddler=<<row-edit-state>> text=<<previous-node>>/>
-			<$action-listops $tiddler={{!!parent}} $field="stream-list" $subfilter="+[is[tiddler]] -[<currentTiddler>]"/>			
-			<$action-deletetiddler $tiddler=<<currentTiddler>>/>
-		</$action-confirm>	
-		</$list>
+		<%if [<previous-node>!has[stream-list]] %>
+			<$action-confirm $message="Merge with previous node?" $prompt={{$:/config/sq/streams/prompt-merge-with-previous}}>
+				<$action-setfield $tiddler="$:/state/sq/streams/caret-position" text={{{[<previous-node>get[text]length[]]}}}/>
+				<$action-setfield $tiddler=<<previous-node>> text={{{[<previous-node>get[text]!is[blank]else[]addsuffix{!!text}]}}} stream-list={{!!stream-list}}/>
+				<$action-setfield $tiddler=<<row-edit-state>> text=<<previous-node>>/>
+				<$action-listops $tiddler={{!!parent}} $field="stream-list" $subfilter="+[is[tiddler]] -[<currentTiddler>]"/>			
+				<$action-deletetiddler $tiddler=<<currentTiddler>>/>
+			</$action-confirm>	
+		<%endif%>
 	</$list>
 	</$set>
 	</$set>
 	
-</$list>
-</$list>
+<%endif%>
+<%endif%>
 
 \end
 
@@ -233,42 +233,52 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 \procedure rename-node-actions()
 <$action-withinput message="Rename this tiddler?" default=<<currentTiddler>> actions="""
 	<$action-sendmessage $message="tm-rename-tiddler" from=<<currentTiddler>> to=<<userInput>>/>
-	<$list filter="[<row-edit-state>match<currentTiddler>]" variable="_NULL">
+	<%if [<row-edit-state>match<currentTiddler>] %>
 		<$action-setfield $tiddler=<<row-edit-state>> text=<<userInput>>/>
-	</$list>
+	<%endif%>
 """/>
 \end
 
 
 \procedure find-last-child()
 <!-- used by focus-higher-node-actions macro -->
-<$list filter="[enlist{!!stream-list}is[tiddler]last[]]" emptyMessage="""<$action-setfield $tiddler=<<row-edit-state>> text=<<currentTiddler>>/>""">
+<%if [enlist{!!stream-list}is[tiddler]last[]] %>
 	<$macrocall $name="find-last-child"/>
-</$list>
+<%else%>
+	<$action-setfield $tiddler=<<row-edit-state>> text=<<currentTiddler>>/>
+<%endif%>
 \end
 
 
 \procedure focus-higher-node-actions()
 <!-- handles moving up in the nodes with the keyboard -->
 <$vars old-parent={{!!parent}} >
-<$list filter="[{!!parent}get[stream-list]enlist-input[]is[tiddler]before<currentTiddler>]" emptyMessage="""<$list filter="[<old-parent>!match<stream-root-title>]"><$action-setfield $tiddler=<<row-edit-state>> text=<<old-parent>> /></$list>""">
-	<$macrocall $name="find-last-child"/>
-</$list>
+	<%if [{!!parent}get[stream-list]enlist-input[]is[tiddler]before<currentTiddler>] %>
+		<$macrocall $name="find-last-child"/>
+	<%else%>
+		<$list filter="[<old-parent>!match<stream-root-title>]">
+			<$action-setfield $tiddler=<<row-edit-state>> text=<<old-parent>> />
+		</$list>
+	<%endif%>
 </$vars>
 \end
 
 
 \procedure find-next-downwards-node()
 <!-- used by focus-lower-node-actions macro -->
-<$list filter="[<currentTiddler>has[parent]]" variable="_NULL">
+<%if [<currentTiddler>has[parent]] %>
 <$set name="old-parent" value={{!!parent}} select="0">
 <$set name="old-parent-nodes" filter="[<old-parent>get[stream-list]]" select="0">
-<$list filter="[enlist<old-parent-nodes>is[tiddler]after<currentTiddler>]" emptyMessage="""<$set name="currentTiddler" value=<<old-parent>>><<find-next-downwards-node>></$set>""">
+<%if [enlist<old-parent-nodes>is[tiddler]after<currentTiddler>] %>
 	<$action-setfield $tiddler=<<row-edit-state>> text=<<currentTiddler>>/>	
-</$list>
+<%else%>
+	<$set name="currentTiddler" value=<<old-parent>>>
+		<<find-next-downwards-node>>
+	</$set>
+<%endif%>
 </$set>
 </$set>
-</$list>
+<%endif%>
 \end
 
 
