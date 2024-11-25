@@ -12,8 +12,8 @@ title: $:/plugins/linonetwo/streams-outliner-lib/contextmenu/contextmenu-templat
 
 \procedure menu-divider() <div class="sq-contextmenu-divider"/>
 
-<$reveal type="popup" state=<<contextmenu-state>> position={{{[<contextmenu-state>get[position]]}}} tag="div">
-	<div class={{{tc-drop-down sq-contextmenu [<contextmenu-state>get[position]match[right]then[sq-contextmenu-alignright]else[]] +[join[ ]]}}}>
+<$reveal type="popup" state=<<contextmenu-state>> position="below" tag="div">
+	<div class="tc-drop-down sq-contextmenu">
 		<$macrocall $name="menu-item" title="""<<lingo "Open">>""" actions="""<$action-navigate/>"""/>
 		<$macrocall $name="menu-item" title="""<<lingo "Rename">>""" subtitle="((streams-rename))" actions=<<rename-node-actions>>/>
 		<$macrocall $name="menu-item" title="""<<lingo "Delete">>""" subtitle="((streams-delete))" actions=<<delete-node-actions>>/>
