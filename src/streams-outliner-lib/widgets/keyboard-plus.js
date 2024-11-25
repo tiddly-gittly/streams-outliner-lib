@@ -137,9 +137,8 @@ KeyboardWidget.prototype.invokeActionString = function(actions,triggeringWidget,
 		variables = {};
 	}
 	
-	const activeElement = document.activeElement;
-	const cm6Dom = activeElement?.closest?.(".cm-editor")?.parentNode
-	const cm5 = activeElement?.closest?.(".CodeMirror")?.CodeMirror;
+	const cm6Dom = document.activeElement?.closest?.(".cm-editor")?.parentNode
+	const cm5 = document.activeElement?.closest?.(".CodeMirror")?.CodeMirror;
 	if (cm6Dom && cm6Dom.cm6) {
 		const editor = cm6Dom.cm6;
 		const cursor = editor.state.selection.main.head; // 获取光标位置
@@ -153,20 +152,6 @@ KeyboardWidget.prototype.invokeActionString = function(actions,triggeringWidget,
 		variables["selectionStart"] = startRange.length.toString();
 		variables["selectionEnd"] = (selectionStart + selection.length).toString();
 		variables["selection"] = selection.toString();
-	} else if ((activeElement?.tagName === "INPUT" && activeElement?.type === "TEXT") || activeElement?.tagName === "TEXTAREA") {
-		let selection;
-		if(activeElement && activeElement.tagName === "IFRAME") {
-			var idoc = activeElement.contentDocument || activeElement.contentWindow.document;
-			activeElement = idoc.activeElement;
-			selection = idoc.getSelection();
-		} else {
-			selection = window.getSelection();
-		}
-		if (selection) {
-			variables["selectionStart"] = activeElement.selectionStart.toString();
-			variables["selectionEnd"] = activeElement.selectionEnd.toString();
-			variables["selection"] = selection.toString();
-		}
 	} else if (cm5) {
 		const cursor = cm5.getCursor("start");
 		const startRange = cm5.getRange({"line":0,"ch":0},{"line":cursor.line,"ch":cursor.ch});
@@ -177,9 +162,24 @@ KeyboardWidget.prototype.invokeActionString = function(actions,triggeringWidget,
 		variables["selectionStart"] = startRange.length.toString();
 		variables["selectionEnd"] = (selectionStart + selection.length).toString();
 		variables["selection"] = cm5.getSelection().toString();
+	} else {
+		let activeElement = document.activeElement;
+		let selection;
+		if(activeElement && activeElement.tagName === "IFRAME") {
+			var idoc = activeElement.contentDocument || activeElement.contentWindow.document;
+			activeElement = idoc.activeElement;
+			selection = idoc.getSelection();
+		} else if ((activeElement?.tagName === "INPUT" && activeElement?.type === "TEXT") || activeElement?.tagName === "TEXTAREA") {
+			selection = window.getSelection();
+		}
+		if (selection) {
+			variables["selectionStart"] = activeElement.selectionStart.toString();
+			variables["selectionEnd"] = activeElement.selectionEnd.toString();
+			variables["selection"] = selection.toString();
+		}
 	}
 
-	//this.selection_original_invokeActionString(actions,triggeringWidget,event,variables);
+	// if variables is not properly set, when Enter, new empty node goes to middle of two nodes, instead of tot the bottom.
 	Object.getPrototypeOf(Object.getPrototypeOf(this)).invokeActionString.call(this,actions,triggeringWidget,event,variables);
 }
 
