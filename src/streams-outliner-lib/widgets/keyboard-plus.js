@@ -40,12 +40,13 @@ KeyboardWidget.prototype.render = function(parent,nextSibling) {
 	
 	// Add a keyboard event handler
 	domNode.addEventListener("keydown", (event) => {
-			// CM triggers two events
+			// CM triggers two events (on mobile), need to ignore composed event
 			// second event has:
 			//		defaultPrevented : true
 			//		detail: 0
 			// 		eventPhase 3 (instead of 2)
 			// 		isComposing : false
+			if (event.composed) return;
 			if(!event.defaultPrevented) {
 				var key, action, preventDefault;
 				for(var i=0; i<self.shortcutTiddlers.length; i++) {

@@ -101,22 +101,32 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 
 
 \procedure save-node-actions()
-<$list filter="""[{$:/config/sq/streams/split-at-caret}match[yes]]""" variable="_NULL" emptyMessage=<<add-node-actions>> >
-<$list filter="[<selectionEnd>!is[blank]else[0]!match[0]]" variable="_NULL">
-<$list filter="[<currentTiddler>get[text]length[]subtract<selectionEnd>!match[0]]" variable="_NULL" emptyMessage=<<add-node-actions>>>
-	<$macrocall $name="add-node-actions" startText={{{[<currentTiddler>get[text]split[]rest<selectionEnd>join[]trim[]]}}} streamList={{!!stream-list}} /><!--insertPosition="title"-->
-	<$action-setfield $tiddler="$:/state/sq/streams/caret-position" text="0"/>
-	<$action-setfield $tiddler=<<currentTiddler>> text={{{[<currentTiddler>get[text]split[]first<selectionEnd>join[]]}}} stream-list=""/>
-</$list>
-</$list>
-<$list filter="[<selectionEnd>!is[blank]else[0]match[0]]" variable="_NULL">
-	<$list filter="[<currentTiddler>!has[text]]" variable="_NULL" emptyMessage=<<add-node-actions "" "title">> >
-		<$list filter="""[{$:/config/sq/streams/exit-on-saving-empty-node}match[yes]]""" variable="_NULL" emptyMessage=<<add-node-actions>> >
-			<<cancel-edit-node-actions>>
-		</$list>
-	</$list>
-</$list>
-</$list>
+<%if [{$:/config/sq/streams/split-at-caret}match[yes]] %>
+	<%if [<selectionEnd>!is[blank]else[0]match[0]] %>
+		<!-- Enter on empty input -->
+		<%if [<currentTiddler>!has[text]] %>
+			<%if [{$:/config/sq/streams/exit-on-saving-empty-node}match[yes]] %>
+				<<cancel-edit-node-actions>>
+			<%else%>
+				<<add-node-actions>>
+			<%endif%>
+		<%else%>
+			<<add-node-actions "" "title">>
+		<%endif%>
+	<%else%>
+		<!-- Enter at middle of text, will split the node to two -->
+		<%if [<currentTiddler>get[text]length[]subtract<selectionEnd>!match[0]] %>
+			<$macrocall $name="add-node-actions" startText={{{[<currentTiddler>get[text]split[]rest<selectionEnd>join[]trim[]]}}} streamList={{!!stream-list}} /><!--insertPosition="title"-->
+			<$action-setfield $tiddler="$:/state/sq/streams/caret-position" text="0"/>
+			<$action-setfield $tiddler=<<currentTiddler>> text={{{[<currentTiddler>get[text]split[]first<selectionEnd>join[]]}}} stream-list=""/>
+		<%else%>
+			<!-- Enter at the end of text, simply add new node -->
+			<<add-node-actions>>
+		<%endif%>
+	<%endif%>
+<%else%>
+	<<add-node-actions>>
+<%endif%>
 \end
 
 \procedure add-new-node-actions()
@@ -136,9 +146,9 @@ title: $:/plugins/linonetwo/streams-outliner-lib/action-macros
 	<$set name="parent-nodes" filter="[<parent>get[stream-list]]" select="0">
 	<$set name="next-node" filter="[enlist<parent-nodes>is[tiddler]$insertPosition$<currentTiddler>]" select="0">
 	<$action-listops $tiddler=<<parent>> $field="stream-list" $subfilter="+[is[tiddler]] +[insertbefore:next-node<new-node>]"/>
-	<$list filter="[<parent>!has[stream-type]]" variable="_NULL">
+	<%if [<parent>!has[stream-type]] %>
 		<$action-setfield $tiddler=<<parent>> stream-type="default"/>
-	</$list>
+	<%endif%>
 	<$list filter="[enlist<__streamList__>]">
 		<$action-setfield $tiddler=<<currentTiddler>> parent=<<new-node>>/>
 	</$list>
