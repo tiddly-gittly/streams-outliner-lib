@@ -95,3 +95,12 @@ title: your-breadcrumbs-view-template
   <<stream-show-breadcrumbs>>
 <%endif%>
 ```
+
+!! 疑难排查
+
+!!! 右键菜单/右滑菜单错位
+
+* 尝试去掉某个上层容器的滚动
+** 例如去掉 `height: 100vh;` 限制或去掉 `overflow-y: auto;` 属性
+* 这是因为右键菜单的定位是相对于 [[`offsetParent` 的|https://developer.mozilla.org/docs/Web/API/HTMLElement/offsetParent]]，一般就是 `document.body`，如果父容器有滚动，你会发现不管你怎么滚动，菜单都在相对页面的一个固定位置，那么相对于滚动了的内容，定位就会出错。
+** 原理是 `$eventcatcher` 监听 `.stream-row` → 提供 `<<tv-popup-abs-coords>>` 给 `$action-popup` 计算坐标放入 `<<contextmenu-state>>` → `$reveal` 用 `<<contextmenu-state>>` 来相对于 `<body>` 定位右键菜单
