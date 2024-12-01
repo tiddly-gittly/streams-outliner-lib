@@ -57,7 +57,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/nodes-list-template
 					<!--consider moving last child dropzone in here, though thats for children too-->
 				</div>
 			</div>				
-			<$set name="currentTiddler" filter={{{[<contextmenu-state>get[current]]}}}>
+			<$set name="currentTiddler" filter="[<contextmenu-state>get[current]]">
 				{{||$:/plugins/linonetwo/streams-outliner-lib/contextmenu/contextmenu-template}}
 			</$set>
 		</$list>	
