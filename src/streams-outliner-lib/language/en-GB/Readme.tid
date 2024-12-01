@@ -101,5 +101,6 @@ title: your-breadcrumbs-view-template
 
 * Try to remove scrolling from one of the upper containers.
 ** e.g. remove the `height: 100vh;` restriction or remove the `overflow-y: auto;` attribute
+* Or make container a offsetParent of the context menu.
 * This is because the context menu is positioned relative to [[`offsetParent` of |https://developer.mozilla.org/docs/Web/API/HTMLElement/offsetParent]], which is typically `document.body`, and if the parent container has If the parent container has scrolling, you will find that no matter how you scroll, the menu is in a fixed position relative to the page, and then the positioning will be wrong relative to the scrolled content.
 ** The principle is that `$eventcatcher` listens on `.stream-row` → provides `<<tv-popup-abs-coords>>` to `$action-popup` to compute the coordinates to put into `<<contextmenu-state>>` → `$reveal` with `<<contextmenu-state>>` to position the context menu relative to `<body>`.
