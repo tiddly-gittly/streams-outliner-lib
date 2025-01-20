@@ -1,10 +1,12 @@
 title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template
+tags: $:/tags/Global
 
 \whitespace trim
+\widget $stream.root()
 <$vars dropTargetTiddler=<<currentTiddler>> >
 	<$list filter="[list[!!stream-list]!is[missing]]">
 		<$set name="enable-dnd" filter="[<enable-dnd>match[no]] ~[<drag-title-state>get[text]match<currentTiddler>then[no]]" select="0">
-			{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template}}
+			<$stream.row />
 		</$set>
 	</$list>
 	<$tiddler tiddler="">
@@ -23,3 +25,4 @@ title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template
 		</$droppable>
 	</$tiddler>
 </$vars>
+\end

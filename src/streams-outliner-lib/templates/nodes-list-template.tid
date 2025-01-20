@@ -1,8 +1,10 @@
-title: $:/plugins/linonetwo/streams-outliner-lib/nodes-list-template
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/nodes-list-template
+tags: $:/tags/Global
 
-\import [[$:/plugins/linonetwo/streams-outliner-lib/action-macros]] [all[shadows+tiddlers]tag[$:/tags/streams/actionmacros]]  [all[shadows+tiddlers]tag[$:/tags/streams/user-actionmacros]]
 \whitespace trim
 
+\widget $streams.nodes-list()
+\import [[$:/plugins/linonetwo/streams-outliner-lib/action-macros]] [all[shadows+tiddlers]tag[$:/tags/streams/actionmacros]]  [all[shadows+tiddlers]tag[$:/tags/streams/user-actionmacros]]
 <$vars stream-root-title=<<currentTiddler>>
 	contextmenu-state=<<qualify "$:/state/sq-context-popup">>
 	row-edit-state=<<qualify "$:/state/sq/streams/current-edit-tiddler">>
@@ -35,7 +37,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/nodes-list-template
 		swipethreshold={{$:/config/sq/streams/swipe-threshold}}
 	>
 	<div class={{{ stream-root [{$:/state/sq/nodes/global-drag-state}match[yes]then[stream-dragactive]] [<currentTiddler>!has[stream-list]then[stream-newlist]] +[join[ ]] }}}>
-		{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template}}
+		<$stream.root />
 		<$list filter="[all[current]match<stream-root-title>]" variable="_NULL">
 			<!-- if we are the root, add a button to add more nodes-->
 			<div class="stream-row">
@@ -67,3 +69,4 @@ title: $:/plugins/linonetwo/streams-outliner-lib/nodes-list-template
 	</$eventcatcher>
 	</$eventcatcher>
 </$vars>
+\end

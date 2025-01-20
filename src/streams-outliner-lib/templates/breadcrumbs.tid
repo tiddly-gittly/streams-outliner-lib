@@ -1,4 +1,4 @@
-title: $:/plugins/linonetwo/streams-outliner-lib/breadcrumbs-view-template
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/breadcrumbs-view-template
 tags: $:/tags/Global
 
 \procedure stream-show-breadcrumbs()

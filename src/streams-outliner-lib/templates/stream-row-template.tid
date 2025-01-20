@@ -1,10 +1,13 @@
 title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template
+tags: $:/tags/Global
 
 \whitespace trim
+\widget $stream.row()
 <$qualify
 	name="row-children-visibility-state"
 	title={{{ [[$:/state/sq/streams/visibility/]addsuffix<currentTiddler>] }}}
 >
+<$slot $name="ts-raw" />
 <$droppable 
 	actions=<<stream-drop-actions>>
 	tag="div"
@@ -36,7 +39,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template
 		<div class="stream-node-block">
 			<$list filter="[<row-edit-state>get[text]!is[blank]else[]match<currentTiddler>]" variable="NULL" emptyMessage="""{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-body}}""">
 				<$keyboard-plus shortcutTag="$:/tags/streams/keyboard-shortcuts">
-					{{||$:/plugins/linonetwo/streams-outliner-lib/editor-template}}
+					<$streams.editor-template />
 				</$keyboard-plus>			
 			</$list>
 		</div>
@@ -49,6 +52,7 @@ title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-row-template
 	text="hide"
 	class="stream-row-children"
 >
-		{{||$:/plugins/linonetwo/streams-outliner-lib/templates/stream-root-template}}
+	<$stream.root />
 </$reveal>
 </$qualify>
+\end

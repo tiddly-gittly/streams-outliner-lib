@@ -62,6 +62,24 @@ title: $:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Readme
 
 <<wikitext-example-without-html """<<stream-outliner Index5 newNodeTiddlerTemplate:"$:/plugins/linonetwo/streams-outliner-lib/language/zh-Hans/Name" id:stream-outliner-5>>""">>
 
+!!! 覆盖大纲行微件
+
+本插件提供的大纲行微件是可以被覆盖的，大致结构如下：
+
+`\procedure stream-outliner-breadcrumbs` → `\procedure stream-outliner` → `\widget $streams.nodes-list` → `\widget $stream.root` → `\widget $stream.row` → `\widget $streams.editor-template`
+
+对于 `\widget` 定义的微件，你可以在你的条目中定义一个同名的微件，这样就可以覆盖原插件的微件了。参考太微官方文档中的[[Custom Widgets|https://tiddlywiki.com/#Custom%20Widgets]]，你需要学习用 `<$genesis $type="$stream.row" $remappable="no"/>` 来引用原版微件，然后在其上下左右添加你自己的改动。
+
+<<wikitext-example-without-html """
+\widget $stream.row()
+<$checkbox tag="done"> Is it done?</$checkbox>
+<$genesis $type="$stream.row" $remappable="no"/>
+aaa
+\end $stream.row
+
+<<stream-outliner Index6 id:stream-outliner-6>>
+""">>
+
 !! 其它工具
 
 !!! 面包屑导航

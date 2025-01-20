@@ -1,4 +1,4 @@
-title: $:/plugins/linonetwo/streams-outliner-lib/stream-view-template
+title: $:/plugins/linonetwo/streams-outliner-lib/templates/stream-view-template
 tags: $:/tags/Global
 
 \define stream-dynamic-styles(
@@ -40,7 +40,7 @@ tags: $:/tags/Global
       enableEditToolbar=<<enableEditToolbar>>
       nodeMaxWidth=<<nodeMaxWidth>>
     />
-    {{||$:/plugins/linonetwo/streams-outliner-lib/nodes-list-template}}
+    <$streams.nodes-list />
   </div>
 </$set>
 \end
