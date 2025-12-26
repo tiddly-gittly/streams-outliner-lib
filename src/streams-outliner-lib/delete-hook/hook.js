@@ -7,8 +7,9 @@ module-type: startup
 
 $tw.hooks.addHook("th-deleting-tiddler",function(tiddler) {
 	if(tiddler.fields["draft.of"]) {
-		return;
+		return tiddler;
 	}
 	
 	$tw.rootWidget.invokeActionsByTag("$:/tags/deleteTiddlerAction",null,{currentTiddler : tiddler.fields.title});
+	return tiddler;
 });
